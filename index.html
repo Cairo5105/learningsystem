@@ -1208,7 +1208,7 @@ function renderDecks(){
       <div class="deck-drag-handle" title="Arrastar para reordenar">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="18" r="1"/></svg>
       </div>
-      <div class="deck-icon">${escapeHtml(name.charAt(0).toUpperCase())}</div>
+      <div class="deck-icon notranslate" translate="no">${escapeHtml(name.charAt(0).toUpperCase())}</div>
       <div class="deck-info">
         <div class="deck-name">${escapeHtml(name)}</div>
         <div class="deck-meta">${cardsInDeck.length} ${cardsInDeck.length===1?'card':'cards'}</div>
@@ -1675,6 +1675,12 @@ document.getElementById("importFile").addEventListener("change", (e)=>{
 document.getElementById("resetBtn").addEventListener("click", ()=>{
   if(!confirm("Apagar todos os dados salvos neste dispositivo? Essa ação não pode ser desfeita.")) return;
   state = cloneDeep(DEFAULT_STATE);
+  // DEFAULT_STATE traz cards de exemplo (usados só na primeira execução do app);
+  // "Apagar tudo" precisa zerar de fato os dados do usuário, não repor os exemplos.
+  state.cards = [];
+  state.topics = [];
+  state.deckOrder = [];
+  state.session = null;
   saveState();
   applyTheme();
   toast("Dados apagados.");
