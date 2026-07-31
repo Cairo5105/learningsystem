@@ -1,12 +1,1929 @@
-<!DOCTYPE html>
-<html lang="en">
+!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning System</title>
+<link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAMAEBAAAAEAIABoBAAANgAAACAgAAABACAAKBEAAJ4EAAAwMAAAAQAgAGgmAADGFQAAKAAAABAAAAAgAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAQAAAAAAAQAAAAEAAAAAAAEBAAABAAAAAAEBAAAAAQAAAAEAAAEAAAABAAAAAAAAAAAAAAEAAAABAQAAAAAAAAEBAQAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQABAQEAAAEAAAAAAAAAAAAAAAEBAAABAAABAAAAAAEAAAAAAAABAAAAAQEAAP9wAAn/cwBU/3gAl/93ALb/dwG2/3YBl/90AFf/ZwEKAAAAAP9rARP/awETAAABAAEAAAAAAQAAAAEAAP93AC3/dgHU/3YB/v54AP/+eQD//3gA//54Af//dwH+/3gA1f9xAC3/dgB7/3cAewEAAAAAAAAAAAAAAP+AAAL/dwHL/3gA//94AP//eAD//3gA//54AP//eAD//3gB//54Af//dwHK/nYAgf92AH8AAAAAAAAAAAEAAAD/bQAH/3cB9v94Af//eAH7/ngBwP51AFz+dgFb/3cAvf93APr+eAD//3gA9f92AIb/dwB/AAEAAAAAAQAAAQAA/m0AB/92AOr/dwGg/3YANv9zACr/dgCP/3cBkf50ACz/cQA0/3cAnf93Aen+dwCG/nYAfwABAAABAQEAAAEBAP8AAAH/bQAa/3UBRv53ALH/dgD4/3gA//54Af//dwD5/ncBtP9yAEn/dgAa/nkAgP92AH8BAAEAAAAAAP52AA//dABn/ncAz/53AP3/eQH//3kA//94AP//eAD//3kB//54AP//dwD9/ncA0P92ALr/dgByAAAAAP92AYT/dgDn/3cA/v94Af//eAD//3gA//94AP//dwDp/ncArP93AYv/dwBt/nYAS/9yAS//dQAY/3YAHP90AEv+dgCF/3cB5/52AP7/eAD//3kA//94AP/+eAD//3cAr/92AE7/dQBv/3YAj/93ALD/dwHP/3cA6/93AOP+dwCDAAABAP9mAA//dQBm/3cAz/93AP3+eAD//3gA//94AP//eAH//3gB//94AP//dwD9/3YB0/93AGn+cAAQAAAAAAEAAQAAAAAAAAABAP9AAQT/dwBF/3cBsf92APj/eAD//3gB//93APn+dgC0/3MASf6AAQQAAAAAAQAAAAEAAAAAAAEAAAAAAAAAAAABAAAAAAEBAP8BAAH+cwAo/3YAj/93AJH/cQAr/wEAAQAAAAAAAAAAAAAAAAAAAAABAAAAAAEBAAAAAAAAAAAAAAEBAAEBAAAAAQAAAAAAAAEAAAAAAAEAAQAAAAAAAAAAAAEAAAEAAAEAAQAAAAEAAQAAAAABAAAAAQEAAAEAAAAAAQAAAQEAAAEAAAAAAQAAAQAAAQAAAAAAAQAAAAAAAQAAAAABAQABAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAACAAAABAAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAQAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAAAAAAEAAAAAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAQAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAEAAAAAAP8AAAH/ZgEK/3YAJ/93AE//dgBq/3YAd/92AHf/dgBq/3QAT/92ACf/dAAL/wABAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAEAAAEAAAAAAAAAAAAAAAAAAP+AAAL/dQAj/3YAff93AMj/eADw/3gA9/94APv/eAD9/3gA/f94APv/eAD3/3gA8f92AM3/dQGD/28AJ/+AAQIAAAAAAAAAAP6AAAL/dAFL/3QAS/+AAAIAAAAAAAAAAAEAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAD/dAAL/3YAd/93AOX/dgD9/3gA//94AP//eAD//3gA//94Af//eQD//3gB//94AP//eAD//3gA//93AP3+dwDl/3YAef9qAAwAAAAA/3YADf92AOL/dgDi/3YADQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQAA/3QAC/93AJ//dwD5/3gA/v94AP//eAD//3gB//94AP//eAD//3gA//54AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD5/3YAnv90AAv+dwAP/3cA7/93AO//dwAPAAAAAAAAAAABAAAAAAAAAAAAAQAAAAAAAAAAAP8AAQH/dwBu/3cA+P94AP//eAD//3gA//94AP//eAD//3gB//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gB//94AP//dwD4/3YAbP9wABD/dwDv/ncA7/53AA8AAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAAA/2YACv93Acr/dwD+/3gA//54Af//eAD//3gA//94AP//eAD//3gA//94Af//eAH//3gA//94Af//eAD//3gA//54AP//eAD//3gA//93Af7/dwDJ/3AAGf93AO//dwDv/3cADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAAD/ZgEP/3YA6/94AP//eAD//3gA//94AP//eQD//3cA/v94APf/dwDQ/3cAj/93AI//dwDQ/3gA9/93AP7/eAD//3gA//94AP//eQD//3gA//53AOr/bgAe/3cA7/93AO//dwAPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP5wABD/dwDv/ngA//94AP//eAD//3gA/f94APL+dgC3/3cAVv9wABD/AQAC/wAAAv9tAA7/cwBS/3cAsP93APD/eAH9/3gA//94AP//eAD//3cA7/9zAB//dwDv/3cA7/93AA8AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA/3AAEP93AO//eAD//3cA/P93AOf/dgCZ/3cAOv9gAAj/AAAB/3MAFP92AFv/dgBb/20AFf8AAAL/bQAH/3EANv92AJP/dwDl/3gA+/94AP7/dwDv/3MAH/93Ae//dwDv/3cADwAAAAAAAAAAAQAAAAAAAAAAAAAAAAEAAAAAAAD/ZgEP/3cA5/92ANb/dgB7/3UAI/9AAAT/QAAE/nEAJP91AHz/dwDW/3cA+f94APn/dwDb/3YAgv9zACj/ZgAF/1UAA/9zAB//dgB1/3YA0f93AOf/bgAe/ncA7/93AO//dwAPAAABAAABAAABAQAAAAAAAAAAAAAAAAEAAAEAAP9mAAX/cwBH/3EAEv8AAAH/gAAI/3MAPP92AJr/dwDo/3cA/P94AP//eAD//ngA//94AP//dwD8/3cA6v92AaD/cwBB/2YACv8AAAH/cQAS/3UARv9tABX/dwDv/3cA7/93AA8AAAAAAQAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAP8AAAH+cAAQ/nQAWP92ALf/eAHy/ncA/v95AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3cA/v93APT/dwC9/3UAXv9xABL/AQAB/3cAD/93AO//dwDv/3cADwABAAABAQAAAAAAAAAAAAAAAAAAAAAAAP9VAAP/cwAf/3YAdf92ANH/dwD4/3cA/v94AP//eAD//ngA//94Af//eAD//3gB//94AP//eAD//3gA//94AP//eAD//3gA//93AP7/dwD5/3cA1v92AHv/cAAy/3YA7/93AO//dwAPAAAAAAAAAAABAAAAAQAAAP9tAAf/dQA3/nYAlf93AOX+eAD7/3gA/v94AP//eAD//ngA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//93AP7/eAD7/3cA9P92AOD/dwHp/3gAwv90AAsAAAAAAAAAAP9qAAz/dQBR/3cAsP93APD/eAD9/3gB//94AP//eAD//3gA//94AP//eAH//3gA//94AP//eAH//3gA//93AP7/dwH8/3cB+P93APT/dwDv/3cA3v93AcH/dwCj/3cAhf92AGj/dQBM/3MBM/90ABb/ZgAKAAABAP8AAAH/bQAH/3cAvf94APf/dgD+/3gA//94AP//eAD//3gA//54AP//eAD//3gA//94AP//eAD//3gA//94Af//eAD7/ncArv92AG7/dABR/3cANP91ABj/dgAN/3EACf9mAAUAAQAA/4AAAv+AAAb/ZgAK/3YAD/9yACb/eABC/3UAeP93AK7/dwC+/3gA9/53AP7/eAD//3kA//94AP//eAD//3gA//94AP//eAD//3kA//94AP//eAD//ngA//95APH/cQAk/wEAAf9mAAX/cQAJ/20ADv9zAB//dQA7/3cAWP92AHX/dwCS/3gArv93AMv/dwDm/3gA8f94APX/dwH0/3cAu/9tAA7/dQBT/3cAsP93APD/eAD9/3gA//94Af//eAH//3kA//94AP//eAD//3kB//94AP//eAD//3gA+/93AK7/dgCM/3cAp/95AMT/dwDh/3cB8P54APX/eQD5/3cA/f93Af7/eAD//3kB//94AP3+dwDy/3cAtv91AFP/YgANAAAAAAAAAAD/bQAH/3MANf92AJP/eADk/3gA+/94AP7/eAD//3gA//54AP//eAD//3gA//95AP//eAD//3gA//94AP//eAD//3gB//94AP//eAD//3gA//94AP//eAD//3gA//93APz/dwDn/3cAmP9yADr/YAAIAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA/1QAA/9zAB//dgB1/3YA0f93APj/dwD+/3gA//94AP//eAD//3gA//94AP/+eAD//3kA//94AP//eAD//3gA//94AP//eAD//3cA/v93APn/dwDW/3YAe/51ACP/QAAEAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAH/cAAQ/3QAWP92ALf/eADy/3cA/v94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3cA/v93APT+dwC9/3QAXv9xABL/AAABAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/4EACP9zADz/dgGa/3cA6P53APz/eAD//3gA//94AP//eQD//3cA/P93AOr/dgCg/3YAQf9nAAoAAAAAAAEBAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAQAAAAAAAP9BAAT/cQEk/3UAfP93ANb/dwD5/3gA+f93Adv/dgCC/3MAKP9mAAUAAAAAAAEAAAAAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAABAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAD/AAEB/3MAFP92AFv/dgBb/20AFf8AAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAABAAAAAAAAAAABAAAAAAAAAAAAAAAAAAABAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAQAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAQAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQABAAAAAAAAAAABAQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAADAAAABgAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAB/4AABP9tAA7/bgAe/3cAK/9zATX/dQA7/nUAP/90AED/dAA7/3YANv90ACz/cgAd/2YAD/9mAAX/AQACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA/0AABP9wABD/cwA1/3UAZP93AI3/dwCr/3gAxP93ANb/eQDg/3cA6P93AOj/eQDg/3cA1/92AMb/dwCr/3YAj/91AGv/cwA8/3MAFP9mAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/gAAC/10AC/90AAv/gAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAQAAAAAAAAAAAP8AAAH/cAAS/3IATP92AKj/dwDW/nYA7f93APr/dwD8/3gA/f93AP7/dwD+/3cA/v93AP7/dwD+/3cA/v94AP3/dwD8/3cA+v93APD/dwDZ/3cAsP91AFf/ZgAU/wAAAgAAAAAAAAAAAAAAAAAAAAD/cAAp/3UAlP91AJn/cAAp/wAAAQAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/20AB/92ADb/dgCd/3cA4/94APn/dwD+/3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//ngA//94AP//dwD+/3cA+v93AOb/dgCc/3MAPP9gAAgAAAAAAAAAAP9VAAP/dABt/3cA7P93AO//dQBt/4AABAAAAAAAAQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAD/ZgAP/3YAW/94AMD/dwD0/ngA/f94AP//eAD//ngA//94AP//eAD//ngA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eQD//3gA//93AP7/eAD1/3cAx/90AGH/bQAOAAAAAP9VAAP/dgB9/3cA+P93APr/dgB9/2YABQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP9VAAb/dABh/3cA2f93APz/dwD+/3gA/v94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//ngA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//dwD+/3gA+/93Ad3/cwBf/2AACP9VAAP/dgB//3gA+f94APv/dgB//2YABQAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP90ACz/dwDD/3cA+v94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//ngA//94AP//eAD//3gA//94Af//eAD//3gA//94AP//eAD//3gA//94APv/dwDB/3UAMv+AAQT/dgB//3gA+f94APv/dwB//2YABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA/2AACP93AHT/dwDw/3cA/v94AP//eQD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eQD//3gA//94AP//eAD//ngA//93AP7/dwDw/3UAev9iAA3/dgB//3gA+f94APv/dgB//2YABQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA/2sAE/92ALz/dwD6/3cA/v94AP//eAD//3gA//94AP//eAD//3gA//94Af//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//ngA//93AP7/dwD6/3cAvv9qABj/dgB//3gA+f94Afv/dgB//2YABQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA/28AF/93Adv/eAD9/3gA//94AP//eAD//ngA//94AP//eAD//3gA//93AP7/dwD+/3cA+v92Ae//dgDT/3gAwP93AL//dwDT/ncA7v93APr/dwD+/3cA/v94AP//eAD//3gA//94AP//eAD//ngA//94AP//eAD9/3YA3P9yAB3/dgB//ngA+f94APv/dgB//2YABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/nAAGf92AOL/dwD+/3gA//94AP//eAD//3gA//94AP//eAD+/3cA/v93APj/dwDl/3YAtv91AHb/cwA8/2wAGv91ABj/dQA7/3UAcf93Aa7/dwDk/3gA9/94AP3/dwD+/3gA//94AP//eAD//3gA//94AP//dwD+/3cA5P9zAB//dgB//3gA+f94APv/dgB//2YABQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA/2wAGv93AOP/eAD//ngA//94AP//eAD//3gA//94AP3/eAD3/3gA5P92AKj/dABP/3cAHv9VAAb/AAABAAAAAAAAAAD/AAAB/2YABf9wARn/cwBJ/3YAmf94AN//eAD1/3cA/f94AP//eAD//3gA//94AP//eAD//3cA5f9zAB//dgB//3gA+f94APv/dgB//2YABQAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/mwAGv93AOP/eAD//3gA//93AP7/dwD7/3cA8P93AND/dgCV/3QARP9rABP/QAAE/wAAAf9mAAX/cAAZ/3MANf92ADb/cAAZ/1UABv8AAAH/gAAC/3AAEP9yADr/dwCO/3YAy/93AO7/dgD6/3cA/v94AP7/eAD//ncA5f9zAB//dgB//3gA+f94APv/dgB//2YABQAAAAAAAQAAAAAAAAAAAQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/2wAGv92AOL/dwD+/3cA+f94AOr/dgC6/3UAev91AD3/aAAR/1UAA/8AAQH/cQAJ/3AAIv92AVv/dgCg/3cA1v93ANj/dwCh/3UAZP9zACr/ZgAK/wAAAf+AAAL/ZgAP/3MANf92AHP/dgCz/3cA5v94APf/eAD9/3cA5P9zAB//dgB//3gA+f94APv/dgB//2YABQAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA/2oAGP93ANn/dwDk/3YAq/9zAFT/bAAh/2AACP8AAQH/AAAB/2YACv92ACf/dgB5/3YAxP93AOj/dwD5/3gA/f94AP3/dwD6/3cA7P93AMr/dgCA/3QALv9qAAz/AAAB/wAAAf9mAAX/awAd/3IATP91AJ//dwDh/3YA2v9uAB7/dgB//3gA+f94APv/dgB//2YABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA/3YADf90AHD/cwBF/20AFf9AAAQAAAAA/kAABP9tABX/cwA+/3UAg/93AND/eADx/3cA/P94Af//eAD//3gA//94AP//eAD//3gA//93AP3/dwDy/3cA1v93AY7/dABC/3AAGf9mAQX/AQAB/1UAA/9xABL/cwBF/3YAbv9xARL/dgB//ngA+f94Afv/dgB//2YABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAP9gAAj/QAAE/wAAAf9tAAf/dAAh/nUAV/93AZj/dwDU/3cA8v93APz/dwD+/3gA//94AP//eAD//3gA//94AP//eQD//3gA//94Af//dwD+/3cA/P93APT/dwDY/3YAoP91AWL/dQAl/3EACf8AAAH/QAAE/2AACP+AAAT/dgB//3gA+f94APv/dgB//mYABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAD/ZgAK/3UAI/92AG7/dwC//3gA5v94APn/eAD9/3cA/v94AP//eAD//3gA//94AP//eAD//3gA//94Af//eAD//3gA//94AP//eAD//3gA//93AP7/dwD+/3cA+v93AOv/dgDE/3UAfP9wACn/XQALAAAAAP9VAAP/dgB//ngA+f94APv/dgB//2YABQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/QAAE/2sAE/9vADf/dQB8/3YAzf93APD/dwD8/3cA/v94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//ngA//94Af//eAD//3gA//93AP7/dwD8/3cA8v94ANX/dgCE/nMAPv9xABv/dgCC/3gA+f94APv/dgB//2YABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAB/20AB/9tABz/dQBX/3YAk/92AM//eADx/3gA+/93AP7/eAD//3gA//94AP//eQD//3gA//94AP//eAD//ngA//94Af//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eQD//3gA//94AP//eAD//3cA/v93APz/eADz/3cA1v91AJ//dwC5/3cA+v93APf/dgB7/2YABQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAP9tAAf/bgAl/3UAbf92AL7/dwDl/3cA+P94AP3/dwD+/3gA/v94AP//eAD//3gA//94AP//eAD//ngA//94AP//eQD//3gA//94AP//eQD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//dwD+/3gA/f93APr/dwD1/3YA7/94AOj/dwDh/3YA2v93ALv/dABR/1UAAwAAAAAAAAAAAAAAAP+AAAL/cQAS/3EANP90AHL/dwDF/3cA7v92APz/dwD+/3gA//94AP//eAD//3gA//94AP//eQD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3cA/v93AP7/eQD9/3cA/P94APv/dwD6/3cA+P93APL/dwDn/3cA3P94ANH/dgDG/3cAuP93AKH/dgCE/3YAbP91AFX/cgA4/nIAHf9rABP/SQAHAAAAAAAAAAD/gAAC/gAAAv90AED/dwCO/3cAzf94APH/eAD7/3cA/v94AP//eAD//ngA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//ngA//93Af7/eAD7/ngA8f94AOL/eADO/ncAvP93AKn/dgCV/3UAg/93AHT/eABg/3UATP90ADn/dQAl/msAE/9iAA3/ZgAK/20AB/9mAAX/gAACAAAAAP8AAAL/ZgAF/m0AB/9wABD/dwBB/3IAOv92AM3/dwD1/3gA/f93AP7/eAD//3gA//94AP//eAD//3gA//94Af//eAD//ngA//94AP//eAD//ngA//94AP//eAD//3gA//94Af//eAD//3gA//94AP3/dwDS/3QAZf91ADL/cwAo/3MAH/9vABf/WgAO/2YABf9VAAP/gAAC/wAAAv8AAAEAAAAAAAAAAP9VAAP/bAAH/2oADP9pABH/bQAV/24AHv9xADb/dgBU/3gAcf91AJj/dwDV/3gAyP93AMj/dwDz/3cA/f93AP7/eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94APv/dgCT/3EAEgAAAAD/AAAB/4AAAv9VAAP/gAAE/2YABf9dAAv/aAAW/nAAIP9zACr/cwA1/3YAQf91AFf/eQBz/3cAj/94Aar/dgDG/3YA3v93AOf/dgDt/3gA8f93APX/dwDy/3YAx/92AUH/dwCQ/3YAz/94APH/eAD7/3cA/v94AP//eAD//3gA//94AP//eAD//ngA//94Af//eQD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//93APz/dgCv/3AAMv91ABj/cwAq/3cAPP93AE//dgBj/3cAdv91AIn/dwCd/3cAr/94AML/dwDX/3cA5/93Ae//eADz/3cA9v94APj/eAD7/3gA/f93AP7/dwD8/ncA8v92ANL/dwCP/3QAQv8AAAL/ZgAP/24ALP9zAGr/dgDC/ngA7P93APv/dgD+/3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//93Af7/dwDy/ncA1P93AMr/eADS/3gA2/94AOT/dgDt/3gA9f93APr/dwD8/ncA/P94Af3/dwD+/3cA/v93AP7/eAD//ngA//94AP//dwD+/ngA+/92AfD/dgDI/3cAeP9yAC//bQAO/wAAAgAAAQAAAAAAAAAAAP9tAAf/cAAi/3YAY/94ALH/dwDf/ncA9v93AP3/dgD+/3gA/v94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//ngA//94AP//eQD//3gA//94AP//eQD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//dwD+/3gA/f93Afj/dwDh/3cAuP93AG//bgAl/3EACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQD/AAAB/20AB/9xABv/dgBU/3YAk/92AM//eADx/3gA+/93AP7/eQD//3gA//94AP//eQD//3gA//94AP//eAD//3gA//94Af//eAD//3gA//94AP//eAD//3gA//94Af//eAD//3gA//94AP//eAD//ngA//94AP//eAD//3cA/v93APz/eADz/3cA1v92AJz/dQBZ/3gAIP9gAAj/AAABAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQD/gAAC/2YAD/9vAC7/dgB1/3cAyf93AO7/eQD7/3cA/v94AP//eAD//3gA//94AP//eAD//3gA//94AP//eQD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//93AP7/dwD8/3gA8f93ANL/dQB8/3MANf9xABL/VAADAAAAAAAAAQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAD/cQAJ/nQAIf92AGj/dgC2/3cA4f94APf/eQD9/3cA/v94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//eAD//ngA//93AP7/eAD9/3cA+f94AOb/dwC7/nUAdP9yACb/ZgAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP9tAAf/dAAh/3UAV/93AJj/dgDU/3cA8v93APz/dgD+/ngA//94AP//eAD//3gA//94AP//eAD//3gA//94AP//dwD+/3cA/P93APT/dwDY/3YAoP91AGL/dQAl/3EACf8AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAQAAAQAAAAAAAAAAAAAA/4AAAv9wABD/cwA1/3YAe/93AM3/dwDw/3cA/P94AP//eAD//3gA//94AP//eAD//3gA//93Af3/eADx/nYA0/93AIf/dAA5/2YAFP9VAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAB/3EACf9xACT/dQBx/3cAuv92AOP/dwD4/3gA/f94AP3/dwD4/3cA5/93AMH/dwB5/24ALP90AAv/AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAH/cQAJ/3AAIv92AFv/dgCg/3cA1v93ANj/dwCh/3UAZP9zACr/ZgAK/wAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAP9VAAP/cwAU/3cAK/90ACz/cwAU/0AABAAAAQAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==">
+<style>
+:root{
+  --bg:#F4F6FA;
+  --bg-elev:#FFFFFF;
+  --bg-sunken:#E7ECF3;
+  --ink:#1B222E;
+  --ink-soft:#54607A;
+  --ink-faint:#8792A8;
+  --line:#D7DEE9;
+  --accent:#245FBD;
+  --accent-soft:#DCE8FB;
+  --accent-ink:#FFFFFF;
+  --warn:#C0392B;
+  --warn-soft:#F5D9D3;
+  --good:#2E7BE0;
+  --shadow: 0 1px 2px rgba(20,30,50,0.05), 0 8px 24px -12px rgba(20,30,50,0.14);
+  --radius:14px;
+  --radius-sm:9px;
+  --serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif;
+  --mono: 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+}
+[data-theme="dark"]{
+  --bg:#0D1117;
+  --bg-elev:#161B22;
+  --bg-sunken:#010409;
+  --ink:#E6EDF3;
+  --ink-soft:#8B949E;
+  --ink-faint:#6E7681;
+  --line:#30363D;
+  --accent:#2F81F7;
+  --accent-soft:#132C4C;
+  --accent-ink:#FFFFFF;
+  --warn:#F85149;
+  --warn-soft:#3D1418;
+  --good:#3FB950;
+  --shadow: 0 1px 2px rgba(0,0,0,0.45), 0 8px 24px -12px rgba(0,0,0,0.7);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  min-height:100vh;
+  transition:background .25s ease, color .25s ease;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--accent-soft);}
+ 
+.wrap{
+  max-width:840px;
+  margin:0 auto;
+  padding:24px 20px 100px;
+}
+ 
+/* ---- Header ---- */
+.top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:28px;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--line);
+}
+.brand{display:flex; flex-direction:column; gap:2px;}
+.brand .mark{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+}
+.brand h1{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:26px;
+  margin:0;
+  letter-spacing:-0.01em;
+}
+.theme-btn{
+  border:1px solid var(--line);
+  background:var(--bg-elev);
+  color:var(--ink);
+  width:38px;height:38px;
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  flex-shrink:0;
+  transition:border-color .2s, transform .12s;
+}
+.theme-btn:hover{border-color:var(--ink-faint);}
+.theme-btn:active{transform:scale(.94);}
+.theme-btn svg{width:18px;height:18px;}
+ 
+/* ---- Nav ---- */
+.tabs{
+  display:flex;
+  gap:6px;
+  margin-bottom:24px;
+  overflow-x:auto;
+  padding-bottom:2px;
+}
+.tab{
+  font-family:var(--sans);
+  font-size:13.5px;
+  font-weight:600;
+  line-height:1;
+  color:var(--ink-soft);
+  background:transparent;
+  border:1px solid transparent;
+  padding:9px 15px;
+  border-radius:999px;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:all .15s;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+.tab .count{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  align-self:center;
+  box-sizing:border-box;
+  line-height:1;
+  min-width:16px;
+  height:16px;
+  padding:2px 6px 0;
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:10.5px;
+  background:var(--warn-soft);
+  color:var(--warn);
+  border-radius:999px;
+}
+.tab.active{
+  background:var(--ink);
+  color:var(--bg);
+  border-color:var(--ink);
+}
+.tab.active .count{background:rgba(255,255,255,.18); color:inherit;}
+.tab:not(.active):hover{border-color:var(--line); color:var(--ink);}
+[data-theme="dark"] .tab:not(.active) .count{background:#4A2320; color:#FFA69E;}
+[data-theme="dark"] .tab.active .count{background:rgba(0,0,0,.18); color:inherit;}
+ 
+.view{display:none; animation:fade .2s ease;}
+.view.active{display:block;}
+@keyframes fade{from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:none;}}
+ 
+/* ---- Cards ---- */
+.card{
+  background:var(--bg-elev);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:22px;
+  margin-bottom:16px;
+  box-shadow:var(--shadow);
+}
+.card h2{
+  font-family:var(--serif);
+  font-size:19px;
+  margin:0 0 8px;
+  font-weight:600;
+}
+.card .sub{
+  font-size:13px;
+  color:var(--ink-soft);
+  margin:0 0 18px;
+  line-height:1.5;
+}
+label.field-label{
+  display:block;
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+  margin-bottom:6px;
+}
+input[type=text], input[type=number], textarea, select{
+  width:100%;
+  background:var(--bg-sunken);
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  padding:10px 12px;
+  font-family:var(--sans);
+  font-size:14.5px;
+  color:var(--ink);
+  outline:none;
+  transition:border-color .15s;
+}
+input:focus, textarea:focus, select:focus{border-color:var(--accent);}
+textarea{resize:vertical; min-height:64px; line-height:1.5;}
+ 
+.row{display:flex; gap:12px;}
+.row > *{flex:1;}
+.field{margin-bottom:14px;}
+ 
+/* ---- Buttons ---- */
+.btn{
+  font-family:var(--sans);
+  font-size:14px;
+  font-weight:700;
+  border-radius:10px;
+  padding:11px 18px;
+  border:1px solid transparent;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition:transform .12s, opacity .15s, background .15s;
+}
+.btn:active{transform:scale(.97);}
+.btn-primary{background:var(--accent); color:var(--bg-elev);}
+[data-theme="dark"] .btn-primary{color:#FFFFFF;}
+.btn-primary:hover{opacity:.9;}
+.btn-ghost{background:transparent; border-color:var(--line); color:var(--ink);}
+.btn-ghost:hover{border-color:var(--ink-faint);}
+.btn-danger{background:transparent; border-color:var(--line); color:var(--warn);}
+.btn-danger:hover{background:var(--warn-soft); border-color:var(--warn);}
+.btn-sm{padding:7px 12px; font-size:12.5px; border-radius:8px;}
+.btn-block{width:100%; justify-content:center;}
+.btn[disabled]{opacity:.4; cursor:not-allowed;}
+ 
+/* ---- Session blocks ---- */
+.block-list{display:flex; flex-direction:column; gap:10px;}
+.block-item{
+  display:flex; align-items:center; gap:12px;
+  background:var(--bg-sunken);
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  padding:12px 14px;
+}
+.block-num{
+  font-family:var(--serif);
+  font-size:20px;
+  color:var(--ink-faint);
+  width:26px;
+  text-align:center;
+  flex-shrink:0;
+}
+.block-item input[type=text]{background:var(--bg-elev);}
+.block-item .mins{width:64px; flex:none; text-align:center;}
+.block-item .mins-lbl{font-size:11px; color:var(--ink-faint); flex:none;}
+ 
+.gap-note{
+  font-size:12.5px;
+  color:var(--ink-soft);
+  padding:10px 14px;
+  background:var(--accent-soft);
+  border-radius:var(--radius-sm);
+  margin:8px 0;
+  line-height:1.5;
+}
+.gap-note b{color:var(--accent); font-weight:700;}
+ 
+/* ---- Runner ---- */
+.runner{
+  text-align:center;
+  padding:10px 0 4px;
+}
+.runner .phase-label{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+  margin-bottom:8px;
+}
+.runner .phase-title{
+  font-family:var(--serif);
+  font-size:24px;
+  margin:0 0 20px;
+  font-weight:600;
+}
+.timer-ring{
+  position:relative;
+  width:220px; height:220px;
+  margin:0 auto 22px;
+}
+.timer-ring svg{transform:rotate(-90deg); width:100%; height:100%;}
+.timer-ring circle{fill:none; stroke-width:8;}
+.ring-bg{stroke:var(--line);}
+.ring-fg{stroke:var(--accent); stroke-linecap:round; transition:stroke-dashoffset 1s linear;}
+.timer-center{
+  position:absolute; inset:0;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+}
+.timer-num{font-family:var(--serif); font-size:40px; font-weight:600; letter-spacing:-0.01em;}
+.timer-sub{font-size:12px; color:var(--ink-soft); margin-top:2px;}
+.runner-controls{display:flex; gap:10px; justify-content:center; flex-wrap:wrap;}
+ 
+.break-suggestions{
+  margin-top:20px;
+  text-align:left;
+  background:var(--bg-sunken);
+  border-radius:var(--radius-sm);
+  padding:14px 16px;
+}
+.break-suggestions .t{font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.03em; color:var(--ink-faint); margin-bottom:8px;}
+.chip-row{display:flex; flex-wrap:wrap; gap:6px;}
+.chip{
+  font-size:12.5px;
+  padding:5px 10px;
+  border-radius:999px;
+  background:var(--bg-elev);
+  border:1px solid var(--line);
+  color:var(--ink-soft);
+}
+.chip.avoid{color:var(--warn); border-color:var(--warn-soft);}
+ 
+/* ---- Quiz ---- */
+.empty{
+  text-align:center;
+  padding:50px 20px;
+  color:var(--ink-faint);
+}
+.empty .ico{font-size:34px; margin-bottom:10px; opacity:.6;}
+.empty p{font-size:14px; margin:0; line-height:1.6;}
+ 
+/* ---- Toast ---- */
+.toast{
+  position:fixed;
+  bottom:24px; left:50%;
+  transform:translateX(-50%) translateY(20px);
+  background:var(--ink);
+  color:var(--bg);
+  padding:11px 20px;
+  border-radius:999px;
+  font-size:13.5px;
+  font-weight:600;
+  opacity:0;
+  pointer-events:none;
+  transition:all .25s ease;
+  box-shadow:var(--shadow);
+  z-index:100;
+  white-space:nowrap;
+}
+[data-theme="dark"] .toast{background:var(--accent); color:#FFFFFF;}
+.toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+ 
+.section-gap{height:6px;}
+.small-note{font-size:12px; color:var(--ink-faint); margin-top:6px; line-height:1.5;}
+ 
+/* ---- Difficulty colors ---- */
+:root{
+  --red:#C0512E; --red-soft:#F5DED3;
+  --yellow:#B98A1E; --yellow-soft:#F3E7C8;
+  --green:#2E8B5C; --green-soft:#D9EEE1;
+}
+[data-theme="dark"]{
+  --red:#E28A5E; --red-soft:#3A2417;
+  --yellow:#E0B84C; --yellow-soft:#3A3018;
+  --green:#5CC98E; --green-soft:#173A28;
+}
+ 
+/* ---- Sort row ---- */
+.sort-row{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:16px;}
+.sort-label{font-size:12px; color:var(--ink-faint); font-weight:600;}
+.sort-btn{
+  font-size:12.5px; font-weight:600; color:var(--ink-soft);
+  background:var(--bg-sunken); border:1px solid var(--line);
+  padding:6px 12px; border-radius:999px; cursor:pointer; transition:all .15s;
+}
+.sort-btn.active{background:var(--accent); color:var(--accent-ink); border-color:var(--accent);}
+.sort-btn:not(.active):hover{border-color:var(--ink-faint);}
+ 
+/* ---- Topic cards ---- */
+.topic-group-title{
+  font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
+  color:var(--ink-faint); margin:18px 0 8px; padding-top:4px;
+}
+.topic-group-title:first-child{margin-top:0;}
+.topic-card{
+  display:flex; align-items:center; gap:14px;
+  background:var(--bg-sunken); border:1px solid var(--line); border-left:4px solid var(--line);
+  border-radius:var(--radius-sm); padding:13px 15px; margin-bottom:9px;
+  cursor:pointer; transition:border-color .15s, transform .1s;
+}
+.topic-card:hover{border-color:var(--ink-faint);}
+.topic-card:active{transform:scale(.995);}
+.topic-card.c-red{border-left-color:var(--red);}
+.topic-card.c-yellow{border-left-color:var(--yellow);}
+.topic-card.c-green{border-left-color:var(--green);}
+.topic-dot{width:11px; height:11px; border-radius:50%; flex-shrink:0;}
+.topic-dot.c-red{background:var(--red);}
+.topic-dot.c-yellow{background:var(--yellow);}
+.topic-dot.c-green{background:var(--green);}
+.topic-info{flex:1; min-width:0;}
+.topic-name{font-size:14.5px; font-weight:600; margin-bottom:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.topic-meta{font-size:12px; color:var(--ink-faint);}
+.topic-suggestion{
+  flex-shrink:0; text-align:right; font-size:11.5px; color:var(--ink-soft);
+  font-family:var(--mono);
+}
+.topic-suggestion b{color:var(--ink); font-family:var(--sans); font-weight:700; display:block; font-size:13px;}
+.topic-date-badge{
+  display:inline-block; margin-bottom:5px; padding:3px 10px;
+  border-radius:999px; font-family:var(--sans); font-weight:700; font-size:12.5px;
+  background:var(--bg-elev); color:var(--ink-faint); border:1px solid var(--line);
+}
+.topic-date-badge.c-red{background:var(--red-soft); color:var(--red); border-color:transparent;}
+.topic-date-badge.c-yellow{background:var(--yellow-soft); color:var(--yellow); border-color:transparent;}
+.topic-date-badge.c-green{background:var(--green-soft); color:var(--green); border-color:transparent;}
+ 
+/* ---- Color picker ---- */
+.color-pick{display:flex; gap:8px;}
+.color-opt{
+  flex:1; padding:12px 8px; border-radius:var(--radius-sm); border:1.5px solid var(--line);
+  background:var(--bg-sunken); color:var(--ink-soft); font-weight:700; font-size:13px;
+  cursor:pointer; transition:all .15s; text-align:center;
+}
+.color-opt.red.selected{background:var(--red-soft); border-color:var(--red); color:var(--red);}
+.color-opt.yellow.selected{background:var(--yellow-soft); border-color:var(--yellow); color:var(--yellow);}
+.color-opt.green.selected{background:var(--green-soft); border-color:var(--green); color:var(--green);}
+ 
+/* ---- Color range editor (config) ---- */
+.color-range-row{
+  display:flex; align-items:center; gap:12px; padding:12px 14px;
+  background:var(--bg-sunken); border:1px solid var(--line); border-radius:var(--radius-sm);
+  margin-bottom:10px; flex-wrap:wrap;
+}
+.color-range-row .dot{width:12px; height:12px; border-radius:50%; flex-shrink:0;}
+.color-range-row .lbl{font-weight:700; font-size:13.5px; min-width:70px;}
+.color-range-row input{max-width:70px; text-align:center;}
+.color-range-row .to{color:var(--ink-faint); font-size:12.5px;}
+ 
+/* ---- Interval grid (no máx. 5 por fileira) ---- */
+.interval-grid{
+  display:grid;
+  grid-template-columns:repeat(5, minmax(84px, 1fr));
+  gap:10px;
+}
+.interval-grid .interval-item{min-width:0;}
+.interval-grid input{width:100%;}
+.interval-item-head{display:flex; align-items:center; justify-content:space-between; gap:4px; margin-bottom:6px;}
+.interval-item-head .field-label{margin-bottom:0;}
+.interval-remove{
+  background:transparent; border:none; color:var(--ink-faint);
+  font-size:15px; line-height:1; cursor:pointer; padding:0 2px;
+  border-radius:4px; flex-shrink:0;
+}
+.interval-remove:hover{color:var(--warn);}
+ 
+/* ---- Modal ---- */
+.modal-backdrop{
+  position:fixed; inset:0; background:rgba(10,12,18,0.5);
+  display:none; align-items:flex-end; justify-content:center; z-index:200;
+  padding:0;
+}
+.modal-backdrop.show{display:flex;}
+.modal{
+  background:var(--bg-elev); width:100%; max-width:640px;
+  border-radius:20px 20px 0 0; padding:24px 22px calc(24px + env(safe-area-inset-bottom, 0px));
+  max-height:86vh; overflow-y:auto;
+  box-shadow:0 -8px 30px rgba(0,0,0,0.25);
+  animation: slideUp .2s ease;
+}
+@keyframes slideUp{from{transform:translateY(24px); opacity:.6;} to{transform:none; opacity:1;}}
+@media (min-width:640px){
+  .modal-backdrop{align-items:center;}
+  .modal{border-radius:var(--radius); max-height:80vh;}
+}
+.modal-head{display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:14px;}
+.modal-head h2{margin:0 0 7px;}
+.modal-close{
+  background:var(--bg-sunken); border:1px solid var(--line); width:32px; height:32px;
+  border-radius:9px; cursor:pointer; color:var(--ink-soft); flex-shrink:0;
+  display:flex; align-items:center; justify-content:center; font-size:16px;
+}
+.history-row{
+  display:flex; align-items:center; gap:10px; padding:10px 0;
+  border-bottom:1px solid var(--line);
+}
+.history-row:last-child{border-bottom:none;}
+.history-date{font-family:var(--mono); font-size:12.5px; color:var(--ink-soft); width:78px; flex-shrink:0;}
+.history-note{flex:1; font-size:13px; color:var(--ink-faint);}
+ 
+/* ---- Decks (Cards system) ---- */
+.deck-row{
+  display:flex; align-items:center; gap:14px;
+  background:var(--bg-sunken); border:1px solid var(--line);
+  border-radius:var(--radius-sm); padding:15px 16px; margin-bottom:9px;
+  cursor:pointer; transition:border-color .15s, transform .1s;
+}
+.deck-row:hover{border-color:var(--accent);}
+.deck-row:active{transform:scale(.995);}
+.deck-icon{
+  width:38px; height:38px; border-radius:10px; flex-shrink:0;
+  background:var(--accent-soft); color:var(--accent);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--serif); font-weight:700; font-size:16px;
+}
+.deck-info{flex:1; min-width:0;}
+.deck-name{font-size:15px; font-weight:700; margin-bottom:2px;}
+.deck-meta{font-size:12.5px; color:var(--ink-faint);}
+.deck-due-badge{
+  flex-shrink:0; background:var(--accent); color:var(--accent-ink);
+  font-size:12.5px; font-weight:700; padding:5px 11px; border-radius:999px;
+}
+.deck-due-badge.zero{background:var(--bg-elev); color:var(--ink-faint); border:1px solid var(--line);}
+.deck-manage-btn{
+  flex-shrink:0; width:32px; height:32px; border-radius:8px;
+  background:var(--bg-elev); border:1px solid var(--line); color:var(--ink-soft);
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+}
+.deck-manage-btn svg{width:15px; height:15px; display:block;}
+.deck-manage-btn:hover{border-color:var(--ink-faint); color:var(--ink);}
+.deck-drag-handle{
+  flex-shrink:0; width:20px; height:20px; color:var(--ink-faint);
+  display:flex; align-items:center; justify-content:center;
+  cursor:grab; touch-action:none;
+}
+.deck-drag-handle svg{width:16px; height:16px; display:block;}
+.deck-row.dragging-active{opacity:.45;}
+.deck-row.drag-over-top{border-top:2px solid var(--accent);}
+.deck-row.drag-over-bottom{border-bottom:2px solid var(--accent);}
+ 
+/* ---- Manage cards modal ---- */
+.manage-card-row{
+  border:1px solid var(--line); border-radius:var(--radius-sm);
+  padding:13px 14px; margin-bottom:9px; background:var(--bg-sunken);
+}
+.manage-card-view{display:flex; align-items:flex-start; gap:10px;}
+.manage-card-qa{flex:1; min-width:0;}
+.manage-card-q{font-size:14px; font-weight:600; margin-bottom:3px; line-height:1.4;}
+.manage-card-a{font-size:12.5px; color:var(--ink-faint); line-height:1.4;}
+.manage-card-meta{font-size:11.5px; color:var(--ink-faint); margin-top:6px; font-family:var(--mono);}
+.manage-card-actions{display:flex; gap:6px; flex-shrink:0;}
+.manage-icon-btn{
+  width:28px; height:28px; border-radius:7px; flex-shrink:0;
+  background:var(--bg-elev); border:1px solid var(--line); color:var(--ink-soft);
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+}
+.manage-icon-btn svg{width:13px; height:13px;}
+.manage-icon-btn:hover{border-color:var(--ink-faint); color:var(--ink);}
+.manage-icon-btn.danger:hover{border-color:var(--warn); color:var(--warn); background:var(--warn-soft);}
+.manage-card-edit{display:none;}
+.manage-card-edit.show{display:block;}
+.manage-card-view.hide{display:none;}
+ 
+/* ---- Card form list (inline, in Sessão + modal) ---- */
+.card-form-item{
+  border:1px solid var(--line); border-radius:var(--radius-sm);
+  padding:14px; margin-bottom:10px; background:var(--bg-sunken);
+}
+.card-form-item textarea{margin-bottom:8px;}
+.card-form-actions{display:flex; justify-content:flex-end;}
+ 
+/* ---- Anki-style review modal ---- */
+.anki-modal{
+  background:var(--bg-elev); width:100%; max-width:640px;
+  border-radius:20px; padding:0; overflow:hidden;
+  box-shadow:0 -8px 30px rgba(0,0,0,0.25);
+  animation: slideUp .2s ease;
+  display:flex; flex-direction:column;
+  max-height:88vh;
+}
+.anki-head{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 18px; border-bottom:1px solid var(--line); flex-shrink:0;
+}
+.anki-deck-label{font-size:12.5px; font-weight:700; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.03em;}
+.anki-progress{
+  flex:1; height:5px; background:var(--bg-sunken); border-radius:999px;
+  margin:0 16px; overflow:hidden;
+}
+.anki-progress-fill{height:100%; background:var(--accent); border-radius:999px; transition:width .25s ease;}
+.anki-counter{font-family:var(--mono); font-size:12px; color:var(--ink-faint); flex-shrink:0;}
+.anki-body{
+  flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:44px 26px; text-align:center; min-height:260px; cursor:pointer;
+}
+.anki-question{font-family:var(--serif); font-size:21px; font-weight:600; line-height:1.5; max-width:480px;}
+.anki-divider{width:60px; height:2px; background:var(--line); margin:26px auto; flex-shrink:0;}
+.anki-answer{font-size:16px; color:var(--ink-soft); line-height:1.6; max-width:480px;}
+.anki-hint{font-size:12px; color:var(--ink-faint); margin-top:22px;}
+.anki-footer{padding:16px 18px; border-top:1px solid var(--line); flex-shrink:0;}
+.anki-grade-row{display:flex; gap:10px;}
+.anki-grade-row .btn{flex:1;}
+.anki-empty{padding:60px 26px; text-align:center;}
+.anki-empty .ico{font-size:38px; margin-bottom:12px;}
+ 
+@media (max-width:640px){
+  .anki-modal{max-width:100%; height:100%; max-height:100%; border-radius:0;}
+}
+ 
+@media (max-width:520px){
+  .wrap{padding:18px 14px 90px;}
+  .brand h1{font-size:22px;}
+  .row{flex-direction:column; gap:0;}
+  .timer-ring{width:190px; height:190px;}
+  .tab{padding:8px 12px; font-size:13px;}
+  .interval-grid{grid-template-columns:repeat(3, minmax(0, 1fr));}
+}
+ 
+</style>
 </head>
 <body>
-    <p>Hello, World!</p>
-    <p>My name is John Doe.</p>
+ 
+<div class="wrap" id="appWrap">
+  <div class="top">
+    <div class="brand">
+      <span class="mark">Ciclo de Estudo</span>
+      <h1 id="greeting">Estudo e Revisão Espaçada</h1>
+    </div>
+    <button class="theme-btn" id="themeBtn" title="Alternar tema" aria-label="Alternar modo claro/escuro">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+ 
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-view="painel">Painel</button>
+    <button class="tab" data-view="sessao">Sessão</button>
+    <button class="tab" data-view="cards">Cards <span class="count" id="cardsDueCount" style="display:none">0</span></button>
+    <button class="tab" data-view="config">Ajustes</button>
+  </div>
+ 
+  <!-- PAINEL -->
+  <div class="view active" id="view-painel">
+    <div class="card">
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:14px;">
+        <div>
+          <h2 style="margin-bottom:8px;">Seus tópicos</h2>
+          <p class="sub" style="margin-bottom:0;">Registre o que estudou. As sugestões abaixo são só isso — sugestões.</p>
+        </div>
+        <button class="btn btn-primary btn-sm" id="newTopicBtn">+ Novo tópico</button>
+      </div>
+      <div class="sort-row">
+        <span class="sort-label">Ordenar:</span>
+        <button class="sort-btn active" data-sort="entrada">Data de entrada</button>
+        <button class="sort-btn" data-sort="urgencia">Urgência</button>
+        <button class="sort-btn" data-sort="disciplina">Disciplina</button>
+      </div>
+      <div id="topicList"></div>
+    </div>
+  </div>
+ 
+ 
+  <!-- SESSAO -->
+  <div class="view" id="view-sessao">
+    <div class="card" id="setupCard">
+      <h2>Monte sua sessão</h2>
+      <p class="sub">Três blocos, cada um com um jeito diferente de processar o conteúdo, separados por pausas curtas.</p>
+      <div class="block-list" id="blockList"></div>
+      <div class="gap-note"><b>Pausa entre blocos:</b> automática, curta, atividade motora — não competitiva com o que você acabou de estudar.</div>
+      <div class="field" style="margin-top:14px;">
+        <label class="field-label">Duração da pausa (minutos)</label>
+        <input type="number" id="breakMinsInput" min="1" max="60" value="10" style="max-width:100px;">
+      </div>
+      <button class="btn btn-primary btn-block" id="startSessionBtn">Iniciar sessão</button>
+    </div>
+ 
+    <div class="card" id="runnerCard" style="display:none;">
+      <div class="runner">
+        <div class="phase-label" id="phaseLabel">Bloco 1</div>
+        <h3 class="phase-title" id="phaseTitle">Leitura</h3>
+        <div class="timer-ring">
+          <svg viewBox="0 0 220 220">
+            <circle class="ring-bg" cx="110" cy="110" r="98"></circle>
+            <circle class="ring-fg" id="ringFg" cx="110" cy="110" r="98" stroke-dasharray="615" stroke-dashoffset="0"></circle>
+          </svg>
+          <div class="timer-center">
+            <div class="timer-num" id="timerNum">40:00</div>
+            <div class="timer-sub" id="timerSub">restantes</div>
+          </div>
+        </div>
+        <div class="runner-controls">
+          <button class="btn btn-ghost" id="pauseBtn">Pausar</button>
+          <button class="btn btn-primary" id="skipBtn">Próxima etapa</button>
+        </div>
+ 
+        <div class="break-suggestions" id="breakSuggestions" style="display:none;">
+          <div class="t">Sugestões para esta pausa</div>
+          <div class="chip-row">
+            <span class="chip">Exercícios de Violão</span>
+            <span class="chip">Música Instrumental (Conhecida)</span>
+            <span class="chip">Alongamento Leve</span>
+            <span class="chip">Caminhada Curta</span>
+          </div>
+          <div class="t" style="margin-top:12px;">Evitar</div>
+          <div class="chip-row">
+            <span class="chip avoid">Aprender música nova</span>
+            <span class="chip avoid">Celular / redes sociais</span>
+            <span class="chip avoid">Ler qualquer outra coisa</span>
+            <span class="chip avoid">Quebra-cabeça novo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="card" id="quizCard" style="display:none;">
+      <h2>Bloco 3 — Registre o que você estudou</h2>
+      <p class="sub">Depois de resolver questões sobre o conteúdo, registre o tópico. Ele entra no seu Painel como primeira revisão.</p>
+      <div class="field">
+        <label class="field-label">Disciplina</label>
+        <input type="text" id="sessDiscipline" placeholder="Ex.: Farmacologia">
+      </div>
+      <div class="field">
+        <label class="field-label">Tópico / capítulo</label>
+        <input type="text" id="sessTopic" placeholder="Ex.: Absorção de drogas">
+      </div>
+      <div class="field">
+        <label class="field-label">Como foi essa primeira passada?</label>
+        <div class="color-pick" id="sessColorPick">
+          <button type="button" class="color-opt red" data-color="red">Difícil</button>
+          <button type="button" class="color-opt yellow" data-color="yellow">Mediano</button>
+          <button type="button" class="color-opt green" data-color="green">Fácil</button>
+        </div>
+      </div>
+      <div class="section-gap"></div>
+      <button class="btn btn-primary btn-block" id="finishSessionBtn">Registrar e concluir sessão</button>
+    </div>
+ 
+    <div class="card" id="sessCardsCard" style="display:none;">
+      <h2>Questões que você errou</h2>
+      <p class="sub">Separado do tópico acima — isso vira cards de revisão tipo flashcard, com algoritmo automático de repetição.</p>
+      <div id="sessCardsList"></div>
+      <button class="btn btn-ghost btn-sm" id="sessAddCardBtn">+ Adicionar card</button>
+    </div>
+  </div>
+ 
+  <!-- MODAL: detalhe do tópico -->
+  <div class="modal-backdrop" id="topicModalBackdrop">
+    <div class="modal" id="topicModal"></div>
+  </div>
+ 
+  <!-- MODAL: adicionar/editar card -->
+  <div class="modal-backdrop" id="cardFormBackdrop">
+    <div class="modal" id="cardFormModal"></div>
+  </div>
+ 
+  <!-- MODAL: revisão de cards (estilo Anki) -->
+  <div class="modal-backdrop" id="reviewBackdrop">
+    <div class="anki-modal" id="reviewModal"></div>
+  </div>
+ 
+  <!-- MODAL: gerenciar cards de um deck -->
+  <div class="modal-backdrop" id="manageBackdrop">
+    <div class="modal" id="manageModal"></div>
+  </div>
+ 
+  <!-- CARDS (decks estilo Anki) -->
+  <div class="view" id="view-cards">
+    <div class="card">
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:14px;">
+        <div>
+          <h2 style="margin-bottom:8px;">Seus baralhos</h2>
+          <p class="sub" style="margin-bottom:0;">Um baralho por disciplina. Sistema separado do Painel de tópicos.</p>
+        </div>
+        <button class="btn btn-primary btn-sm" id="newCardBtn">+ Novo card</button>
+      </div>
+      <div id="deckList"></div>
+    </div>
+  </div>
+ 
+  <!-- CONFIG -->
+  <div class="view" id="view-config">
+    <div class="card">
+      <h2>Janelas de sugestão por cor <span style="font-weight:400; color:var(--ink-faint); font-size:12.5px;">(Painel de tópicos)</span></h2>
+      <p class="sub">Depois de uma revisão, a próxima sugestão de data é calculada a partir da cor que você marcou. Edite os intervalos (em dias) se quiser.</p>
+      <div id="colorEditor"></div>
+    </div>
+    <div class="card">
+      <h2>Intervalos de revisão <span style="font-weight:400; color:var(--ink-faint); font-size:12.5px;">(Cards)</span></h2>
+      <p class="sub">Dias até a próxima revisão após cada acerto consecutivo de um card. Errar sempre volta para amanhã.</p>
+      <div id="cardIntervalEditor" class="interval-grid"></div>
+      <button class="btn btn-ghost btn-sm" id="addCardIntervalBtn" style="margin-top:8px;">+ Adicionar intervalo</button>
+    </div>
+    <div class="card">
+      <h2>Dados</h2>
+      <p class="sub">Tudo fica salvo neste navegador. Exporte de vez em quando para não perder nada.</p>
+      <div class="row">
+        <button class="btn btn-ghost" id="exportBtn">Exportar JSON</button>
+        <button class="btn btn-ghost" id="importBtn">Importar JSON</button>
+      </div>
+      <input type="file" id="importFile" accept="application/json" style="display:none;">
+      <div class="small-note">Importar substitui os dados atuais deste dispositivo.</div>
+      <div class="section-gap"></div>
+      <button class="btn btn-danger" id="resetBtn">Apagar tudo</button>
+    </div>
+  </div>
+ 
+</div>
+ 
+<div class="toast" id="toast"></div>
+ 
+<script>
+(function(){
+"use strict";
+ 
+/* ---------------- Storage ---------------- */
+const cloneDeep = (typeof structuredClone === "function")
+  ? structuredClone
+  : (obj) => JSON.parse(JSON.stringify(obj));
+ 
+const STORE_KEY = "ciclo-estudo-v2";
+const DEFAULT_STATE = {
+  theme: null, // null = follow system
+  blocks: [
+    {name:"Leitura ativa", mins:40},
+    {name:"Mapa mental", mins:40},
+    {name:"Quiz", mins:40}
+  ],
+  breakMins: 10,
+  colorRanges: {
+    red:    {min:1,  max:2},
+    yellow: {min:3,  max:5},
+    green:  {min:7,  max:14}
+  },
+  topicSort: "entrada", // entrada | urgencia | disciplina
+  topics: [], // {id, discipline, name, createdAt, history:[{date(ISO), color}]}
+  cardIntervals: [1,3,7,30], // dias após acerto consecutivo, mesmo sistema que existia antes
+  deckOrder: [], // nomes de disciplinas na ordem definida por drag-and-drop
+  cards: [ // {id, discipline, question, answer, streak, nextDue(ISO), createdAt}
+    // Deck "Bioquímica" — 5 cards
+    {id:"seed-bq-1", discipline:"Bioquímica", question:"O que é um carboidrato?", answer:"Poli-hidroxialdeído, poli-hidroxicetona, ou uma substância que libera esses compostos por hidrólise.", streak:0, nextDue:todayISOSeed(), createdAt:new Date().toISOString()},
+    {id:"seed-bq-2", discipline:"Bioquímica", question:"Qual a diferença entre aldose e cetose?", answer:"Aldoses têm o grupo carbonila (C=O) numa extremidade da cadeia (aldeído); cetoses têm o grupo carbonila em posição interna (cetona).", streak:0, nextDue:todayISOSeed(), createdAt:new Date().toISOString()},
+    {id:"seed-bq-3", discipline:"Bioquímica", question:"O que caracteriza uma reação de hidrólise?", answer:"Quebra de uma ligação química pela adição de uma molécula de água.", streak:0, nextDue:todayISOSeed(), createdAt:new Date().toISOString()},
+    {id:"seed-bq-4", discipline:"Bioquímica", question:"O que são aminoácidos essenciais?", answer:"Aminoácidos que o corpo não consegue sintetizar e precisam vir da dieta.", streak:0, nextDue:todayISOSeed(), createdAt:new Date().toISOString()},
+    {id:"seed-bq-5", discipline:"Bioquímica", question:"O que é desnaturação de uma proteína?", answer:"Perda da estrutura tridimensional (secundária/terciária) da proteína, geralmente sem quebrar ligações peptídicas, causada por calor, pH extremo, etc.", streak:0, nextDue:todayISOSeed(), createdAt:new Date().toISOString()},
+    // Deck "Farmacologia" — 7 cards
+    {id:"seed-fm-1", discipline:"Farmacologia", question:"O que é farmacocinética?", answer:"O estudo do que o organismo faz com o fármaco: absorção, distribuição, metabolismo e excreção.", streak:0, nextDue:todayISOSeed(), createdAt:new Date().toISOString()},
+    {id:"seed-fm-2", discipline:"Farmacologia", question:"O que é farmacodinâmica?", answer:"O estudo do que o fármaco faz com o organismo: mecanismo de ação e efeitos.", streak:0, nextDue:todayISOSeed(), createdAt:new Date().toISOString()},
+    {id:"seed-fm-3", discipline:"Farmacologia", question:"O que é meia-vida de um fármaco?", answer:"Tempo necessário para a concentração plasmática do fármaco cair pela metade.", streak:0, nextDue:todayISOSeed(), createdAt:new Date().toISOString()},
+    {id:"seed-fm-4", discipline:"Farmacologia", question:"O que é biodisponibilidade?", answer:"Fração da dose administrada que atinge a circulação sistêmica de forma inalterada.", streak:0, nextDue:todayISOSeed(), createdAt:new Date().toISOString()},
+    {id:"seed-fm-5", discipline:"Farmacologia", question:"Diferença entre agonista e antagonista?", answer:"Agonista ativa o receptor e produz resposta; antagonista se liga ao receptor mas bloqueia a resposta.", streak:0, nextDue:todayISOSeed(), createdAt:new Date().toISOString()},
+    {id:"seed-fm-6", discipline:"Farmacologia", question:"O que é efeito de primeira passagem?", answer:"Metabolismo do fármaco (geralmente hepático) antes de atingir a circulação sistêmica, reduzindo a biodisponibilidade.", streak:0, nextDue:todayISOSeed(), createdAt:new Date().toISOString()},
+    {id:"seed-fm-7", discipline:"Farmacologia", question:"O que é índice terapêutico?", answer:"Relação entre a dose tóxica e a dose eficaz de um fármaco; quanto maior, mais seguro.", streak:0, nextDue:todayISOSeed(), createdAt:new Date().toISOString()},
+    // Deck "Anatomia" — 4 cards
+    {id:"seed-an-1", discipline:"Anatomia", question:"Quantos ossos tem o esqueleto humano adulto?", answer:"206 ossos.", streak:0, nextDue:todayISOSeed(), createdAt:new Date().toISOString()},
+    {id:"seed-an-2", discipline:"Anatomia", question:"O que é o plano sagital?", answer:"Plano que divide o corpo em partes direita e esquerda.", streak:0, nextDue:todayISOSeed(), createdAt:new Date().toISOString()},
+    {id:"seed-an-3", discipline:"Anatomia", question:"Qual a função do diafragma?", answer:"Principal músculo da respiração; contrai-se para expandir a cavidade torácica durante a inspiração.", streak:0, nextDue:todayISOSeed(), createdAt:new Date().toISOString()},
+    {id:"seed-an-4", discipline:"Anatomia", question:"O que são articulações sinoviais?", answer:"Articulações móveis revestidas por cápsula e líquido sinovial, como joelho e ombro.", streak:0, nextDue:todayISOSeed(), createdAt:new Date().toISOString()}
+  ],
+  session: null // in-progress session state
+};
+function todayISOSeed(){ const d=new Date(); d.setHours(0,0,0,0); return d.toISOString(); }
+ 
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORE_KEY);
+    if(!raw) return cloneDeep(DEFAULT_STATE);
+    const parsed = JSON.parse(raw);
+    return Object.assign(cloneDeep(DEFAULT_STATE), parsed);
+  }catch(e){
+    console.error("Falha ao carregar dados:", e);
+    return cloneDeep(DEFAULT_STATE);
+  }
+}
+function saveState(){
+  try{
+    localStorage.setItem(STORE_KEY, JSON.stringify(state));
+  }catch(e){
+    console.error("Falha ao salvar dados:", e);
+    toast("Não foi possível salvar. Espaço do navegador cheio?");
+  }
+}
+ 
+let state = loadState();
+ 
+/* ---------------- Theme ---------------- */
+function applyTheme(){
+  const root = document.documentElement;
+  let mode = state.theme;
+  if(!mode){
+    try{
+      mode = (typeof window.matchMedia === "function" && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ? "dark" : "light";
+    }catch(e){
+      mode = "light";
+    }
+  }
+  if(mode === "dark") root.setAttribute("data-theme","dark");
+  else root.removeAttribute("data-theme");
+}
+document.getElementById("themeBtn").addEventListener("click", ()=>{
+  const current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+  state.theme = current === "dark" ? "light" : "dark";
+  applyTheme();
+  saveState();
+});
+applyTheme();
+ 
+/* ---------------- Toast ---------------- */
+let toastTimer;
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove("show"), 2200);
+}
+ 
+/* ---------------- Tabs ---------------- */
+document.getElementById("tabs").addEventListener("click", (e)=>{
+  const btn = e.target.closest(".tab");
+  if(!btn) return;
+  setView(btn.dataset.view);
+});
+function setView(name){
+  document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active", t.dataset.view===name));
+  document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active", v.id === "view-"+name));
+  if(name==="painel") renderPainel();
+  if(name==="cards") renderDecks();
+  if(name==="config") renderConfig();
+  if(name==="sessao") renderSessaoEntry();
+}
+ 
+/* ---------------- Utilities ---------------- */
+function uid(){ return Math.random().toString(36).slice(2,10); }
+function todayISO(){ const d=new Date(); d.setHours(0,0,0,0); return d.toISOString(); }
+function addDays(iso, days){ const d=new Date(iso); d.setDate(d.getDate()+days); d.setHours(0,0,0,0); return d.toISOString(); }
+function fmtDate(iso){
+  const d = new Date(iso);
+  return d.toLocaleDateString('pt-BR', {day:'2-digit', month:'short'});
+}
+function daysUntil(iso){
+  const d=new Date(iso); const now=new Date();
+  d.setHours(0,0,0,0); now.setHours(0,0,0,0);
+  return Math.round((d-now)/86400000);
+}
+ 
+/* ---------------- Color helpers ---------------- */
+const COLOR_LABEL = {red:"Difícil", yellow:"Mediano", green:"Fácil"};
+ 
+function lastEntry(topic){
+  return topic.history[topic.history.length-1];
+}
+function suggestionFor(topic){
+  const last = lastEntry(topic);
+  if(!last) return null;
+  const range = state.colorRanges[last.color] || state.colorRanges.yellow;
+  const from = new Date(last.date);
+  const min = addDays(from.toISOString(), range.min);
+  const max = addDays(from.toISOString(), range.max);
+  return {min, max, color:last.color};
+}
+function daysSince(iso){
+  const d = new Date(iso); const now = new Date();
+  d.setHours(0,0,0,0); now.setHours(0,0,0,0);
+  return Math.round((now-d)/86400000);
+}
+function urgencyScore(topic){
+  // Higher = more worth revisiting soon. Based on days since last review
+  // weighted by how tight that color's window is (red = tighter = more urgent sooner).
+  const last = lastEntry(topic);
+  if(!last) return 9999;
+  const range = state.colorRanges[last.color] || state.colorRanges.yellow;
+  const since = daysSince(last.date);
+  return since - range.min; // positive = already inside/past suggested window
+}
+ 
+/* ---------------- PAINEL view ---------------- */
+function renderPainel(){
+  document.querySelectorAll(".sort-btn").forEach(b=>b.classList.toggle("active", b.dataset.sort===state.topicSort));
+  const list = document.getElementById("topicList");
+  list.innerHTML = "";
+ 
+  if(state.topics.length === 0){
+    list.innerHTML = `<div class="empty"><div class="ico">◌</div><p>Nenhum tópico registrado ainda.<br>Adicione um com "+ Novo tópico" ou conclua uma sessão de estudo.</p></div>`;
+    return;
+  }
+ 
+  if(state.topicSort === "disciplina"){
+    const groups = {};
+    state.topics.forEach(t=>{
+      const key = t.discipline || "Sem disciplina";
+      (groups[key] = groups[key] || []).push(t);
+    });
+    Object.keys(groups).sort((a,b)=>a.localeCompare(b,'pt-BR')).forEach(disc=>{
+      const h = document.createElement("div");
+      h.className = "topic-group-title";
+      h.textContent = disc;
+      list.appendChild(h);
+      groups[disc]
+        .sort((a,b)=> new Date(a.createdAt) - new Date(b.createdAt))
+        .forEach(t=>list.appendChild(topicCardEl(t)));
+    });
+    return;
+  }
+ 
+  let sorted = [...state.topics];
+  if(state.topicSort === "urgencia"){
+    sorted.sort((a,b)=> urgencyScore(b) - urgencyScore(a));
+  } else {
+    sorted.sort((a,b)=> new Date(a.createdAt) - new Date(b.createdAt));
+  }
+  sorted.forEach(t=>list.appendChild(topicCardEl(t)));
+}
+ 
+document.querySelectorAll(".sort-btn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    state.topicSort = btn.dataset.sort;
+    saveState();
+    renderPainel();
+  });
+});
+ 
+function topicCardEl(topic){
+  const last = lastEntry(topic);
+  const el = document.createElement("div");
+  el.className = "topic-card" + (last ? " c-"+last.color : "");
+  const sug = suggestionFor(topic);
+  let dateLabel = "—";
+  let sugText = "sem registro";
+  if(sug){
+    const since = daysSince(last.date);
+    dateLabel = since===0 ? "hoje" : since+"d atrás";
+    sugText = `sugestão: ${fmtDate(sug.min)}–${fmtDate(sug.max)}`;
+  }
+  el.innerHTML = `
+    <div class="topic-info">
+      <div class="topic-name">${escapeHtml(topic.name)}</div>
+      <div class="topic-meta">${escapeHtml(topic.discipline || "Sem disciplina")} · ${topic.history.length} ${topic.history.length===1?'revisão':'revisões'}</div>
+    </div>
+    <div class="topic-suggestion">
+      <span class="topic-date-badge ${last ? 'c-'+last.color : ''}">${dateLabel}</span>
+      <div>${sugText}</div>
+    </div>
+  `;
+  el.addEventListener("click", ()=>openTopicModal(topic.id));
+  return el;
+}
+ 
+/* ---------------- New topic ---------------- */
+document.getElementById("newTopicBtn").addEventListener("click", ()=>{
+  openTopicModal(null);
+});
+ 
+/* ---------------- Topic modal ---------------- */
+function openTopicModal(topicId){
+  const isNew = !topicId;
+  const topic = isNew ? null : state.topics.find(t=>t.id===topicId);
+  const modal = document.getElementById("topicModal");
+ 
+  modal.innerHTML = `
+    <div class="modal-head">
+      <div>
+        <h2>${isNew ? "Novo tópico" : "Registrar revisão"}</h2>
+        <p class="sub" style="margin-bottom:0;">${isNew ? "O primeiro registro conta como sua primeira passada pelo conteúdo." : escapeHtml(topic.discipline||'')+" — "+escapeHtml(topic.name)}</p>
+      </div>
+      <button class="modal-close" id="modalCloseBtn">&times;</button>
+    </div>
+    ${isNew ? `
+      <div class="field">
+        <label class="field-label">Disciplina</label>
+        <input type="text" id="mDiscipline" placeholder="Ex.: Farmacologia">
+      </div>
+      <div class="field">
+        <label class="field-label">Tópico / capítulo</label>
+        <input type="text" id="mName" placeholder="Ex.: Absorção de drogas">
+      </div>
+    ` : ``}
+    <div class="field">
+      <label class="field-label">Data desta revisão</label>
+      <input type="text" id="mDate" value="${fmtDate(new Date().toISOString())}" readonly style="opacity:.7;">
+    </div>
+    <div class="field">
+      <label class="field-label">Como foi?</label>
+      <div class="color-pick" id="mColorPick">
+        <button type="button" class="color-opt red" data-color="red">Difícil</button>
+        <button type="button" class="color-opt yellow" data-color="yellow">Mediano</button>
+        <button type="button" class="color-opt green" data-color="green">Fácil</button>
+      </div>
+    </div>
+    <button class="btn btn-primary btn-block" id="mSaveBtn" style="margin-top:6px;">${isNew ? "Registrar tópico" : "Registrar revisão"}</button>
+    ${!isNew ? `
+      <div class="section-gap"></div>
+      <div class="field-label" style="margin-top:18px;">Histórico</div>
+      <div id="mHistory"></div>
+      <button class="btn btn-danger btn-sm" id="mDeleteBtn" style="margin-top:14px;">Remover este tópico</button>
+    ` : ``}
+  `;
+ 
+  let selectedColor = null;
+  modal.querySelector("#mColorPick").addEventListener("click", (e)=>{
+    const btn = e.target.closest(".color-opt");
+    if(!btn) return;
+    selectedColor = btn.dataset.color;
+    modal.querySelectorAll("#mColorPick .color-opt").forEach(b=>b.classList.toggle("selected", b===btn));
+  });
+ 
+  if(!isNew){
+    const hist = modal.querySelector("#mHistory");
+    [...topic.history].reverse().forEach(h=>{
+      const row = document.createElement("div");
+      row.className = "history-row";
+      row.innerHTML = `<div class="history-date">${fmtDate(h.date)}</div><div class="topic-dot c-${h.color}"></div><div class="history-note">${COLOR_LABEL[h.color]}</div>`;
+      hist.appendChild(row);
+    });
+    modal.querySelector("#mDeleteBtn").addEventListener("click", ()=>{
+      if(!confirm("Remover este tópico e todo o histórico dele?")) return;
+      state.topics = state.topics.filter(t=>t.id!==topic.id);
+      saveState();
+      closeTopicModal();
+      renderPainel();
+      toast("Tópico removido.");
+    });
+  }
+ 
+  modal.querySelector("#modalCloseBtn").addEventListener("click", closeTopicModal);
+  modal.querySelector("#mSaveBtn").addEventListener("click", ()=>{
+    if(!selectedColor){ toast("Escolha uma cor primeiro."); return; }
+    if(isNew){
+      const discipline = modal.querySelector("#mDiscipline").value.trim();
+      const name = modal.querySelector("#mName").value.trim();
+      if(!name){ toast("Dê um nome ao tópico."); return; }
+      state.topics.push({
+        id: uid(),
+        discipline, name,
+        createdAt: new Date().toISOString(),
+        history: [{date: new Date().toISOString(), color: selectedColor}]
+      });
+      toast("Tópico registrado.");
+    } else {
+      topic.history.push({date: new Date().toISOString(), color: selectedColor});
+      toast("Revisão registrada.");
+    }
+    saveState();
+    closeTopicModal();
+    renderPainel();
+  });
+ 
+  document.getElementById("topicModalBackdrop").classList.add("show");
+}
+function closeTopicModal(){
+  document.getElementById("topicModalBackdrop").classList.remove("show");
+}
+document.getElementById("topicModalBackdrop").addEventListener("click", (e)=>{
+  if(e.target.id === "topicModalBackdrop") closeTopicModal();
+});
+ 
+/* ================================================================
+   SISTEMA DE CARDS (separado do Painel de tópicos)
+   Baralhos = agrupados automaticamente por disciplina.
+   Algoritmo: streak + cardIntervals, igual ao sistema antigo.
+   ================================================================ */
+function isCardDue(iso){
+  const d = new Date(iso), now = new Date();
+  d.setHours(0,0,0,0); now.setHours(0,0,0,0);
+  return d.getTime() <= now.getTime();
+}
+function cardDaysUntil(iso){
+  const d = new Date(iso), now = new Date();
+  d.setHours(0,0,0,0); now.setHours(0,0,0,0);
+  return Math.round((d-now)/86400000);
+}
+function decksFromCards(){
+  const map = {};
+  state.cards.forEach(c=>{
+    const key = c.discipline || "Sem disciplina";
+    if(!map[key]) map[key] = [];
+    map[key].push(c);
+  });
+  return map;
+}
+function updateCardsDueBadge(){
+  const totalDue = state.cards.filter(c=>isCardDue(c.nextDue)).length;
+  const badge = document.getElementById("cardsDueCount");
+  if(totalDue>0){ badge.style.display="inline-block"; badge.textContent = totalDue; }
+  else badge.style.display="none";
+}
+ 
+/* ---------------- CARDS view: lista de decks ---------------- */
+function renderDecks(){
+  updateCardsDueBadge();
+  const list = document.getElementById("deckList");
+  list.innerHTML = "";
+  if(state.cards.length === 0){
+    list.innerHTML = `<div class="empty"><div class="ico">◌</div><p>Nenhum card ainda.<br>Adicione com "+ Novo card" ou registre questões erradas depois do Bloco 3 de uma sessão.</p></div>`;
+    return;
+  }
+  const decks = decksFromCards();
+  const orderedNames = getOrderedDeckNames(Object.keys(decks));
+  orderedNames.forEach(name=>{
+    const cardsInDeck = decks[name];
+    const due = cardsInDeck.filter(c=>isCardDue(c.nextDue)).length;
+    const row = document.createElement("div");
+    row.className = "deck-row";
+    row.draggable = true;
+    row.dataset.deck = name;
+    row.innerHTML = `
+      <div class="deck-drag-handle" title="Arrastar para reordenar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="18" r="1"/></svg>
+      </div>
+      <div class="deck-icon">${escapeHtml(name.charAt(0).toUpperCase())}</div>
+      <div class="deck-info">
+        <div class="deck-name">${escapeHtml(name)}</div>
+        <div class="deck-meta">${cardsInDeck.length} ${cardsInDeck.length===1?'card':'cards'}</div>
+      </div>
+      <div class="deck-due-badge ${due===0?'zero':''}">${due===0 ? 'em dia' : due+' devido'+(due===1?'':'s')}</div>
+      <button type="button" class="deck-manage-btn" title="Ver e editar cards" data-deck="${escapeHtml(name)}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      </button>
+    `;
+    row.addEventListener("click", (e)=>{
+      if(row.classList.contains("dragging-active")) return;
+      openReviewModal(name);
+    });
+    row.querySelector(".deck-manage-btn").addEventListener("click", (e)=>{
+      e.stopPropagation();
+      openManageModal(name);
+    });
+    attachDeckDragHandlers(row);
+    list.appendChild(row);
+  });
+}
+ 
+/* ---------------- Reordenar decks (drag-and-drop) ---------------- */
+function getOrderedDeckNames(names){
+  const order = Array.isArray(state.deckOrder) ? state.deckOrder : [];
+  const known = order.filter(n=>names.includes(n));
+  const rest = names.filter(n=>!known.includes(n)).sort((a,b)=>a.localeCompare(b,'pt-BR'));
+  return [...known, ...rest];
+}
+let draggedDeckRow = null;
+function attachDeckDragHandlers(row){
+  row.addEventListener("dragstart", (e)=>{
+    draggedDeckRow = row;
+    row.classList.add("dragging-active");
+    e.dataTransfer.effectAllowed = "move";
+    try{ e.dataTransfer.setData("text/plain", row.dataset.deck); }catch(err){}
+  });
+  row.addEventListener("dragend", ()=>{
+    row.classList.remove("dragging-active");
+    document.querySelectorAll(".deck-row.drag-over-top,.deck-row.drag-over-bottom")
+      .forEach(el=>el.classList.remove("drag-over-top","drag-over-bottom"));
+    draggedDeckRow = null;
+    persistDeckOrderFromDOM();
+  });
+  row.addEventListener("dragover", (e)=>{
+    e.preventDefault();
+    if(!draggedDeckRow || draggedDeckRow === row) return;
+    e.dataTransfer.dropEffect = "move";
+    const rect = row.getBoundingClientRect();
+    const before = (e.clientY - rect.top) < rect.height/2;
+    row.classList.toggle("drag-over-top", before);
+    row.classList.toggle("drag-over-bottom", !before);
+  });
+  row.addEventListener("dragleave", ()=>{
+    row.classList.remove("drag-over-top","drag-over-bottom");
+  });
+  row.addEventListener("drop", (e)=>{
+    e.preventDefault();
+    row.classList.remove("drag-over-top","drag-over-bottom");
+    if(!draggedDeckRow || draggedDeckRow === row) return;
+    const rect = row.getBoundingClientRect();
+    const before = (e.clientY - rect.top) < rect.height/2;
+    const list = document.getElementById("deckList");
+    if(before) list.insertBefore(draggedDeckRow, row);
+    else list.insertBefore(draggedDeckRow, row.nextSibling);
+  });
+}
+function persistDeckOrderFromDOM(){
+  const list = document.getElementById("deckList");
+  const names = Array.from(list.querySelectorAll(".deck-row")).map(r=>r.dataset.deck);
+  state.deckOrder = names;
+  saveState();
+}
+ 
+/* ---------------- Adicionar / editar card (modal) ---------------- */
+document.getElementById("newCardBtn").addEventListener("click", ()=>openCardFormModal());
+ 
+function openCardFormModal(prefillDiscipline){
+  const modal = document.getElementById("cardFormModal");
+  modal.innerHTML = `
+    <div class="modal-head">
+      <div><h2>Novo card</h2><p class="sub" style="margin-bottom:0;">Vira um baralho automaticamente pela disciplina.</p></div>
+      <button class="modal-close" id="cardFormCloseBtn">&times;</button>
+    </div>
+    <div class="field">
+      <label class="field-label">Disciplina</label>
+      <input type="text" id="cfDiscipline" placeholder="Ex.: Farmacologia" value="${escapeHtml(prefillDiscipline||'')}">
+    </div>
+    <div class="field">
+      <label class="field-label">Pergunta</label>
+      <textarea rows="2" id="cfQuestion" placeholder="Ex.: O que é potenciação de longo prazo?"></textarea>
+    </div>
+    <div class="field">
+      <label class="field-label">Resposta</label>
+      <textarea rows="2" id="cfAnswer" placeholder="Resposta esperada..."></textarea>
+    </div>
+    <button class="btn btn-primary btn-block" id="cfSaveBtn">Adicionar card</button>
+  `;
+  modal.querySelector("#cardFormCloseBtn").addEventListener("click", closeCardFormModal);
+  modal.querySelector("#cfSaveBtn").addEventListener("click", ()=>{
+    const discipline = modal.querySelector("#cfDiscipline").value.trim();
+    const question = modal.querySelector("#cfQuestion").value.trim();
+    const answer = modal.querySelector("#cfAnswer").value.trim();
+    if(!question){ toast("Escreva a pergunta."); return; }
+    state.cards.push({
+      id: uid(), discipline, question, answer,
+      streak: 0,
+      nextDue: todayISO(),
+      createdAt: new Date().toISOString()
+    });
+    saveState();
+    closeCardFormModal();
+    toast("Card adicionado.");
+    if(document.getElementById("view-cards").classList.contains("active")) renderDecks();
+    updateCardsDueBadge();
+  });
+  document.getElementById("cardFormBackdrop").classList.add("show");
+}
+function closeCardFormModal(){
+  document.getElementById("cardFormBackdrop").classList.remove("show");
+}
+document.getElementById("cardFormBackdrop").addEventListener("click", (e)=>{
+  if(e.target.id === "cardFormBackdrop") closeCardFormModal();
+});
+ 
+/* ---------------- Revisão estilo Anki (pop-up) ---------------- */
+let reviewQueue = [];
+let reviewIndex = 0;
+let reviewDeckName = "";
+let reviewTotal = 0;
+ 
+function openReviewModal(deckName){
+  reviewDeckName = deckName;
+  reviewQueue = state.cards.filter(c=>(c.discipline||"Sem disciplina")===deckName && isCardDue(c.nextDue));
+  reviewTotal = reviewQueue.length;
+  reviewIndex = 0;
+  document.getElementById("reviewBackdrop").classList.add("show");
+  renderReviewCard();
+}
+function closeReviewModal(){
+  document.getElementById("reviewBackdrop").classList.remove("show");
+  renderDecks();
+}
+document.getElementById("reviewBackdrop").addEventListener("click", (e)=>{
+  if(e.target.id === "reviewBackdrop") closeReviewModal();
+});
+ 
+function renderReviewCard(){
+  const modal = document.getElementById("reviewModal");
+  if(reviewIndex >= reviewQueue.length){
+    modal.innerHTML = `
+      <div class="anki-head">
+        <span class="anki-deck-label">${escapeHtml(reviewDeckName)}</span>
+        <button class="modal-close" id="reviewCloseBtn">&times;</button>
+      </div>
+      <div class="anki-empty">
+        <div class="ico">✓</div>
+        <h2>Baralho em dia</h2>
+        <p class="sub">Você revisou ${reviewTotal} ${reviewTotal===1?'card':'cards'} deste baralho por agora.</p>
+      </div>
+      <div class="anki-footer">
+        <button class="btn btn-primary btn-block" id="reviewDoneBtn">Fechar</button>
+      </div>
+    `;
+    modal.querySelector("#reviewCloseBtn").addEventListener("click", closeReviewModal);
+    modal.querySelector("#reviewDoneBtn").addEventListener("click", closeReviewModal);
+    return;
+  }
+ 
+  const card = reviewQueue[reviewIndex];
+  const pct = reviewTotal ? Math.round((reviewIndex/reviewTotal)*100) : 0;
+ 
+  modal.innerHTML = `
+    <div class="anki-head">
+      <span class="anki-deck-label">${escapeHtml(reviewDeckName)}</span>
+      <div class="anki-progress"><div class="anki-progress-fill" style="width:${pct}%"></div></div>
+      <span class="anki-counter">${reviewIndex+1}/${reviewTotal}</span>
+    </div>
+    <div class="anki-body" id="ankiBody">
+      <div class="anki-question">${escapeHtml(card.question)}</div>
+      <div id="ankiAnswerWrap" style="display:none;">
+        <div class="anki-divider"></div>
+        <div class="anki-answer">${escapeHtml(card.answer || "(sem resposta registrada)")}</div>
+      </div>
+      <div class="anki-hint" id="ankiHint">toque para revelar a resposta</div>
+    </div>
+    <div class="anki-footer">
+      <div id="ankiFooterPre">
+        <button class="btn btn-ghost btn-block" id="reviewCloseBtn2">Fechar</button>
+      </div>
+      <div class="anki-grade-row" id="ankiFooterPost" style="display:none;">
+        <button class="btn btn-primary" id="gradeRightBtn">Acertei</button>
+        <button class="btn btn-danger" id="gradeWrongBtn">Errei</button>
+      </div>
+    </div>
+  `;
+  modal.querySelector("#reviewCloseBtn2").addEventListener("click", closeReviewModal);
+  const body = modal.querySelector("#ankiBody");
+  body.addEventListener("click", revealAnswer);
+  function revealAnswer(){
+    modal.querySelector("#ankiAnswerWrap").style.display = "block";
+    modal.querySelector("#ankiHint").style.display = "none";
+    modal.querySelector("#ankiFooterPre").style.display = "none";
+    modal.querySelector("#ankiFooterPost").style.display = "flex";
+    body.removeEventListener("click", revealAnswer);
+    modal.querySelector("#gradeWrongBtn").addEventListener("click", (e)=>{ e.stopPropagation(); gradeCard(card.id, false); });
+    modal.querySelector("#gradeRightBtn").addEventListener("click", (e)=>{ e.stopPropagation(); gradeCard(card.id, true); });
+  }
+}
+function gradeCard(cardId, correct){
+  const c = state.cards.find(x=>x.id===cardId);
+  if(c){
+    if(correct){
+      c.streak = Math.min(c.streak + 1, state.cardIntervals.length);
+      const days = state.cardIntervals[c.streak-1] ?? state.cardIntervals[state.cardIntervals.length-1];
+      c.nextDue = addDays(todayISO(), days);
+    } else {
+      c.streak = 0;
+      c.nextDue = addDays(todayISO(), 1);
+    }
+    saveState();
+  }
+  reviewIndex += 1;
+  renderReviewCard();
+}
+ 
+/* ---------------- Gerenciar cards do deck (ver / editar / excluir) ---------------- */
+let manageDeckName = "";
+ 
+function openManageModal(deckName){
+  manageDeckName = deckName;
+  renderManageModal();
+  document.getElementById("manageBackdrop").classList.add("show");
+}
+function closeManageModal(){
+  document.getElementById("manageBackdrop").classList.remove("show");
+  renderDecks();
+}
+document.getElementById("manageBackdrop").addEventListener("click", (e)=>{
+  if(e.target.id === "manageBackdrop") closeManageModal();
+});
+ 
+function renderManageModal(){
+  const modal = document.getElementById("manageModal");
+  const cardsInDeck = state.cards.filter(c=>(c.discipline||"Sem disciplina")===manageDeckName);
+ 
+  modal.innerHTML = `
+    <div class="modal-head">
+      <div>
+        <h2>${escapeHtml(manageDeckName)}</h2>
+        <p class="sub" style="margin-bottom:0;">${cardsInDeck.length} ${cardsInDeck.length===1?'card':'cards'} neste baralho.</p>
+      </div>
+      <button class="modal-close" id="manageCloseBtn">&times;</button>
+    </div>
+    <div id="manageCardsList"></div>
+  `;
+  modal.querySelector("#manageCloseBtn").addEventListener("click", closeManageModal);
+ 
+  const list = modal.querySelector("#manageCardsList");
+  if(cardsInDeck.length === 0){
+    list.innerHTML = `<div class="empty"><div class="ico">◌</div><p>Nenhum card restante neste baralho.</p></div>`;
+    return;
+  }
+ 
+  cardsInDeck.forEach(card=>{
+    const row = document.createElement("div");
+    row.className = "manage-card-row";
+    const due = isCardDue(card.nextDue);
+    row.innerHTML = `
+      <div class="manage-card-view">
+        <div class="manage-card-qa">
+          <div class="manage-card-q">${escapeHtml(card.question)}</div>
+          <div class="manage-card-a">${escapeHtml(card.answer || "(sem resposta registrada)")}</div>
+          <div class="manage-card-meta">streak ${card.streak} · ${due ? 'devido agora' : 'próxima em '+fmtDate(card.nextDue)}</div>
+        </div>
+        <div class="manage-card-actions">
+          <button type="button" class="manage-icon-btn" data-edit="${card.id}" title="Editar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          </button>
+          <button type="button" class="manage-icon-btn danger" data-delete="${card.id}" title="Excluir">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="manage-card-edit" id="edit-${card.id}">
+        <div class="field">
+          <label class="field-label">Disciplina</label>
+          <input type="text" id="ed-disc-${card.id}" value="${escapeHtml(card.discipline||'')}">
+        </div>
+        <div class="field">
+          <label class="field-label">Pergunta</label>
+          <textarea rows="2" id="ed-q-${card.id}">${escapeHtml(card.question)}</textarea>
+        </div>
+        <div class="field">
+          <label class="field-label">Resposta</label>
+          <textarea rows="2" id="ed-a-${card.id}">${escapeHtml(card.answer)}</textarea>
+        </div>
+        <div class="card-form-actions" style="gap:8px;">
+          <button type="button" class="btn btn-ghost btn-sm" data-cancel="${card.id}">Cancelar</button>
+          <button type="button" class="btn btn-primary btn-sm" data-save="${card.id}">Salvar</button>
+        </div>
+      </div>
+    `;
+    list.appendChild(row);
+  });
+ 
+  list.querySelectorAll("[data-edit]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const id = btn.dataset.edit;
+      const row = btn.closest(".manage-card-row");
+      row.querySelector(".manage-card-view").classList.add("hide");
+      row.querySelector(`#edit-${id}`).classList.add("show");
+    });
+  });
+  list.querySelectorAll("[data-cancel]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const id = btn.dataset.cancel;
+      const row = btn.closest(".manage-card-row");
+      row.querySelector(".manage-card-view").classList.remove("hide");
+      row.querySelector(`#edit-${id}`).classList.remove("show");
+    });
+  });
+  list.querySelectorAll("[data-save]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const id = btn.dataset.save;
+      const card = state.cards.find(c=>c.id===id);
+      if(!card) return;
+      const newDiscipline = document.getElementById(`ed-disc-${id}`).value.trim();
+      const newQuestion = document.getElementById(`ed-q-${id}`).value.trim();
+      const newAnswer = document.getElementById(`ed-a-${id}`).value.trim();
+      if(!newQuestion){ toast("A pergunta não pode ficar vazia."); return; }
+      card.discipline = newDiscipline;
+      card.question = newQuestion;
+      card.answer = newAnswer;
+      saveState();
+      toast("Card atualizado.");
+      // se a disciplina mudou, o card pode ter saído deste baralho
+      if(newDiscipline !== manageDeckName && !(newDiscipline==="" && manageDeckName==="Sem disciplina")){
+        manageDeckName = newDiscipline || "Sem disciplina";
+      }
+      renderManageModal();
+    });
+  });
+  list.querySelectorAll("[data-delete]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      if(!confirm("Excluir este card? Essa ação não pode ser desfeita.")) return;
+      state.cards = state.cards.filter(c=>c.id!==btn.dataset.delete);
+      saveState();
+      toast("Card excluído.");
+      if(state.cards.some(c=>(c.discipline||"Sem disciplina")===manageDeckName)){
+        renderManageModal();
+      } else {
+        closeManageModal();
+      }
+    });
+  });
+}
+ 
+/* ---------------- CONFIG view ---------------- */
+function renderConfig(){
+  const editor = document.getElementById("colorEditor");
+  editor.innerHTML = "";
+  const rows = [
+    {key:"red", label:"Difícil", cls:"c-red"},
+    {key:"yellow", label:"Mediano", cls:"c-yellow"},
+    {key:"green", label:"Fácil", cls:"c-green"}
+  ];
+  rows.forEach(r=>{
+    const range = state.colorRanges[r.key];
+    const row = document.createElement("div");
+    row.className = "color-range-row";
+    row.innerHTML = `
+      <div class="dot topic-dot ${r.cls}"></div>
+      <div class="lbl">${r.label}</div>
+      <input type="number" min="1" value="${range.min}" data-key="${r.key}" data-bound="min">
+      <span class="to">a</span>
+      <input type="number" min="1" value="${range.max}" data-key="${r.key}" data-bound="max">
+      <span class="to">dias</span>
+    `;
+    editor.appendChild(row);
+  });
+  editor.querySelectorAll("input").forEach(inp=>{
+    inp.addEventListener("change", ()=>{
+      const key = inp.dataset.key, bound = inp.dataset.bound;
+      const v = Math.max(1, parseInt(inp.value)||1);
+      state.colorRanges[key][bound] = v;
+      saveState();
+    });
+  });
+ 
+  const ciEditor = document.getElementById("cardIntervalEditor");
+  ciEditor.innerHTML = "";
+  state.cardIntervals.forEach((val, i)=>{
+    const wrap = document.createElement("div");
+    wrap.className = "interval-item";
+    wrap.innerHTML = `
+      <div class="interval-item-head">
+        <label class="field-label">Passo ${i+1}</label>
+        ${state.cardIntervals.length > 1 ? `<button type="button" class="interval-remove" data-idx="${i}" title="Remover passo">&times;</button>` : ``}
+      </div>
+      <input type="number" min="1" value="${val}" data-idx="${i}" class="card-interval-input">
+    `;
+    ciEditor.appendChild(wrap);
+  });
+  ciEditor.querySelectorAll(".card-interval-input").forEach(inp=>{
+    inp.addEventListener("change", ()=>{
+      const idx = +inp.dataset.idx;
+      const v = Math.max(1, parseInt(inp.value)||1);
+      state.cardIntervals[idx] = v;
+      saveState();
+    });
+  });
+  ciEditor.querySelectorAll(".interval-remove").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      if(state.cardIntervals.length <= 1){
+        toast("Precisa ficar pelo menos 1 passo.");
+        return;
+      }
+      state.cardIntervals.splice(+btn.dataset.idx, 1);
+      saveState();
+      renderConfig();
+    });
+  });
+}
+document.getElementById("addCardIntervalBtn").addEventListener("click", ()=>{
+  const last = state.cardIntervals[state.cardIntervals.length-1] || 1;
+  state.cardIntervals.push(last*2);
+  saveState();
+  renderConfig();
+});
+ 
+document.getElementById("exportBtn").addEventListener("click", ()=>{
+  const blob = new Blob([JSON.stringify(state, null, 2)], {type:"application/json"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "ciclo-de-estudo-backup.json";
+  a.click();
+  URL.revokeObjectURL(url);
+  toast("Backup exportado.");
+});
+document.getElementById("importBtn").addEventListener("click", ()=>{
+  document.getElementById("importFile").click();
+});
+document.getElementById("importFile").addEventListener("change", (e)=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = ()=>{
+    try{
+      const parsed = JSON.parse(reader.result);
+      state = Object.assign(cloneDeep(DEFAULT_STATE), parsed);
+      saveState();
+      applyTheme();
+      toast("Dados importados.");
+      setView("painel");
+    }catch(err){
+      toast("Arquivo inválido.");
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = "";
+});
+document.getElementById("resetBtn").addEventListener("click", ()=>{
+  if(!confirm("Apagar todos os dados salvos neste dispositivo? Essa ação não pode ser desfeita.")) return;
+  state = cloneDeep(DEFAULT_STATE);
+  saveState();
+  applyTheme();
+  toast("Dados apagados.");
+  setView("painel");
+});
+ 
+/* ---------------- SESSAO: setup ---------------- */
+function renderSessaoEntry(){
+  const inProgress = !!state.session;
+  document.getElementById("setupCard").style.display = inProgress ? "none" : "block";
+  document.getElementById("runnerCard").style.display = "none";
+  document.getElementById("quizCard").style.display = "none";
+  document.getElementById("sessCardsCard").style.display = "none";
+  if(inProgress){
+    resumeSession();
+  } else {
+    renderBlockEditor();
+    document.getElementById("breakMinsInput").value = state.breakMins;
+  }
+}
+function renderBlockEditor(){
+  const list = document.getElementById("blockList");
+  list.innerHTML = "";
+  state.blocks.forEach((b, i)=>{
+    const row = document.createElement("div");
+    row.className = "block-item";
+    row.innerHTML = `
+      <div class="block-num">${i+1}</div>
+      <input type="text" value="${escapeHtml(b.name)}" data-idx="${i}" class="block-name">
+      <input type="number" value="${b.mins}" min="1" max="180" class="mins block-mins" data-idx="${i}">
+      <div class="mins-lbl">min</div>
+    `;
+    list.appendChild(row);
+  });
+  list.querySelectorAll(".block-name").forEach(inp=>{
+    inp.addEventListener("input", ()=>{ state.blocks[+inp.dataset.idx].name = inp.value; saveState(); });
+  });
+  list.querySelectorAll(".block-mins").forEach(inp=>{
+    inp.addEventListener("change", ()=>{ state.blocks[+inp.dataset.idx].mins = Math.max(1,parseInt(inp.value)||1); saveState(); });
+  });
+}
+document.getElementById("breakMinsInput").addEventListener("change", (e)=>{
+  state.breakMins = Math.max(1, parseInt(e.target.value)||1);
+  saveState();
+});
+ 
+document.getElementById("startSessionBtn").addEventListener("click", ()=>{
+  state.session = {
+    phaseIndex: 0, // 0=block1,1=break,2=block2,3=break,4=block3
+    phases: buildPhases(),
+    running: true,
+    secondsLeft: null,
+    startedAt: Date.now()
+  };
+  state.session.secondsLeft = state.session.phases[0].secs;
+  saveState();
+  resumeSession();
+});
+ 
+function buildPhases(){
+  const phases = [];
+  state.blocks.forEach((b, i)=>{
+    phases.push({type:"block", label:`Bloco ${i+1}`, title:b.name, secs: b.mins*60});
+    if(i < state.blocks.length - 1){
+      phases.push({type:"break", label:"Pausa", title:"Intervalo curto", secs: state.breakMins*60});
+    }
+  });
+  return phases;
+}
+ 
+let tickTimer = null;
+function resumeSession(){
+  document.getElementById("setupCard").style.display = "none";
+  document.getElementById("quizCard").style.display = "none";
+  document.getElementById("sessCardsCard").style.display = "none";
+  document.getElementById("runnerCard").style.display = "block";
+  renderRunner();
+  clearInterval(tickTimer);
+  if(state.session.running) startTick();
+}
+function renderRunner(){
+  const s = state.session;
+  if(!s) return;
+  const phase = s.phases[s.phaseIndex];
+  if(!phase){
+    // all blocks/breaks done -> show quiz
+    document.getElementById("runnerCard").style.display = "none";
+    showQuiz();
+    return;
+  }
+  document.getElementById("phaseLabel").textContent = phase.label;
+  document.getElementById("phaseTitle").textContent = phase.title;
+  document.getElementById("breakSuggestions").style.display = phase.type === "break" ? "block" : "none";
+ 
+  const total = phase.secs;
+  const left = s.secondsLeft;
+  const pct = Math.max(0, left/total);
+  const circumference = 615;
+  document.getElementById("ringFg").style.strokeDasharray = circumference;
+  document.getElementById("ringFg").style.strokeDashoffset = circumference * (1-pct);
+  document.getElementById("timerNum").textContent = fmtTime(left);
+  document.getElementById("timerSub").textContent = phase.type==="break" ? "de pausa" : "restantes";
+  document.getElementById("pauseBtn").textContent = s.running ? "Pausar" : "Retomar";
+  document.getElementById("skipBtn").textContent = phase.type==="break" ? "Pular pausa" : "Concluir bloco";
+}
+function fmtTime(sec){
+  sec = Math.max(0, Math.round(sec));
+  const m = Math.floor(sec/60);
+  const s = sec%60;
+  return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+}
+function startTick(){
+  clearInterval(tickTimer);
+  tickTimer = setInterval(()=>{
+    if(!state.session || !state.session.running) return;
+    state.session.secondsLeft -= 1;
+    if(state.session.secondsLeft <= 0){
+      advancePhase();
+      return;
+    }
+    renderRunner();
+    if(state.session.secondsLeft % 5 === 0) saveState();
+  }, 1000);
+}
+function advancePhase(){
+  const s = state.session;
+  const finishedPhase = s.phases[s.phaseIndex];
+  s.phaseIndex += 1;
+  const next = s.phases[s.phaseIndex];
+  if(next){
+    s.secondsLeft = next.secs;
+    s.running = true;
+    toast(finishedPhase.type==="break" ? "Pausa concluída." : "Bloco concluído.");
+  } else {
+    s.running = false;
+    clearInterval(tickTimer);
+  }
+  saveState();
+  renderRunner();
+}
+document.getElementById("pauseBtn").addEventListener("click", ()=>{
+  state.session.running = !state.session.running;
+  saveState();
+  renderRunner();
+});
+document.getElementById("skipBtn").addEventListener("click", ()=>{
+  advancePhase();
+});
+ 
+/* ---------------- Quiz block (registro de tópico) ---------------- */
+let sessSelectedColor = null;
+let sessCards = []; // {tmpId, discipline, question, answer}
+ 
+function showQuiz(){
+  document.getElementById("quizCard").style.display = "block";
+  document.getElementById("sessDiscipline").value = "";
+  document.getElementById("sessTopic").value = "";
+  sessSelectedColor = null;
+  document.querySelectorAll("#sessColorPick .color-opt").forEach(b=>b.classList.remove("selected"));
+ 
+  document.getElementById("sessCardsCard").style.display = "block";
+  sessCards = [];
+  renderSessCardsList();
+}
+document.getElementById("sessColorPick").addEventListener("click", (e)=>{
+  const btn = e.target.closest(".color-opt");
+  if(!btn) return;
+  sessSelectedColor = btn.dataset.color;
+  document.querySelectorAll("#sessColorPick .color-opt").forEach(b=>b.classList.toggle("selected", b===btn));
+});
+ 
+/* -- questões erradas da sessão: lista inline, separada do tópico -- */
+document.getElementById("sessAddCardBtn").addEventListener("click", ()=>{
+  sessCards.push({tmpId: uid(), discipline:"", question:"", answer:""});
+  renderSessCardsList();
+});
+function renderSessCardsList(){
+  const wrap = document.getElementById("sessCardsList");
+  wrap.innerHTML = "";
+  sessCards.forEach(item=>{
+    const el = document.createElement("div");
+    el.className = "card-form-item";
+    el.innerHTML = `
+      <div class="field">
+        <label class="field-label">Disciplina</label>
+        <input type="text" data-id="${item.tmpId}" data-f="discipline" value="${escapeHtml(item.discipline)}" placeholder="Ex.: Farmacologia">
+      </div>
+      <div class="field">
+        <label class="field-label">Pergunta</label>
+        <textarea rows="2" data-id="${item.tmpId}" data-f="question" placeholder="O que você errou?">${escapeHtml(item.question)}</textarea>
+      </div>
+      <div class="field">
+        <label class="field-label">Resposta</label>
+        <textarea rows="2" data-id="${item.tmpId}" data-f="answer" placeholder="Resposta correta...">${escapeHtml(item.answer)}</textarea>
+      </div>
+      <div class="card-form-actions">
+        <button class="btn btn-ghost btn-sm" data-remove="${item.tmpId}">Remover</button>
+      </div>
+    `;
+    wrap.appendChild(el);
+  });
+  wrap.querySelectorAll("input, textarea").forEach(inp=>{
+    inp.addEventListener("input", ()=>{
+      const item = sessCards.find(x=>x.tmpId===inp.dataset.id);
+      item[inp.dataset.f] = inp.value;
+    });
+  });
+  wrap.querySelectorAll("[data-remove]").forEach(b=>{
+    b.addEventListener("click", ()=>{
+      sessCards = sessCards.filter(x=>x.tmpId!==b.dataset.remove);
+      renderSessCardsList();
+    });
+  });
+}
+ 
+document.getElementById("finishSessionBtn").addEventListener("click", ()=>{
+  const discipline = document.getElementById("sessDiscipline").value.trim();
+  const name = document.getElementById("sessTopic").value.trim();
+  if(name){
+    if(!sessSelectedColor){
+      toast("Escolha como foi essa primeira passada.");
+      return;
+    }
+    state.topics.push({
+      id: uid(),
+      discipline, name,
+      createdAt: new Date().toISOString(),
+      history: [{date: new Date().toISOString(), color: sessSelectedColor}]
+    });
+  }
+ 
+  const validCards = sessCards.filter(c=>c.question.trim());
+  validCards.forEach(c=>{
+    state.cards.push({
+      id: uid(),
+      discipline: c.discipline.trim(),
+      question: c.question.trim(),
+      answer: c.answer.trim(),
+      streak: 0,
+      nextDue: todayISO(),
+      createdAt: new Date().toISOString()
+    });
+  });
+ 
+  state.session = null;
+  saveState();
+  const parts = [];
+  if(name) parts.push("tópico registrado");
+  if(validCards.length) parts.push(`${validCards.length} card${validCards.length===1?'':'s'} adicionado${validCards.length===1?'':'s'}`);
+  toast(parts.length ? parts.join(" · ") : "Sessão concluída.");
+  setView("painel");
+});
+ 
+/* ---------------- helpers ---------------- */
+function escapeHtml(str){
+  return String(str||"").replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+ 
+/* ---------------- init ---------------- */
+renderPainel();
+updateCardsDueBadge();
+ 
+})();
+</script>
 </body>
 </html>
