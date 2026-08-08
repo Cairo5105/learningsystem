@@ -809,6 +809,8 @@ textarea{resize:vertical; min-height:64px; line-height:1.5;}
 
 <div class="toast" id="toast"></div>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 <script>
 (function(){
 "use strict";
@@ -872,16 +874,74 @@ function loadState(){
     return cloneDeep(DEFAULT_STATE);
   }
 }
+
+/* ---- Armazenamento compartilhado via Firebase Realtime Database ----
+   Projeto Firebase PRÓPRIO deste app (separado do CIMV Tracker e do
+   Banco de Conteúdo). Preencha com os dados do SEU projeto Firebase. */
+const firebaseConfig = {
+  apiKey: "AIzaSyAicU_s5zjTjZUjLU-ABsqVTkm_Cyeo3OI",
+  authDomain: "learning-system-b490d.firebaseapp.com",
+  databaseURL: "https://learning-system-b490d-default-rtdb.firebaseio.com",
+  projectId: "learning-system-b490d",
+};
+
+let db = null;
+let dbRef = null;
+let isRemoteUpdate = false; // evita loop: salvar o que acabou de chegar do servidor
+
+function initFirebase(){
+  if(!firebaseConfig.apiKey || !firebaseConfig.databaseURL || firebaseConfig.databaseURL.includes('COLE_AQUI')){
+    console.warn('Configure o firebaseConfig para ativar o armazenamento compartilhado.');
+    return false;
+  }
+  firebase.initializeApp(firebaseConfig);
+  db = firebase.database();
+  dbRef = db.ref(STORE_KEY);
+  return true;
+}
+
 function saveState(){
-  try{
-    localStorage.setItem(STORE_KEY, JSON.stringify(state));
-  }catch(e){
-    console.error("Falha ao salvar dados:", e);
-    toast("Não foi possível salvar. Espaço do navegador cheio?");
+  if(isRemoteUpdate) return; // não reenvia dado que acabou de vir do servidor
+  if(dbRef){
+    dbRef.set(state).catch(e=>{
+      console.error("Falha ao salvar dados (Firebase):", e);
+      toast("Não foi possível salvar. Verifique sua conexão.");
+    });
+  } else {
+    try{
+      localStorage.setItem(STORE_KEY, JSON.stringify(state));
+    }catch(e){
+      console.error("Falha ao salvar dados:", e);
+      toast("Não foi possível salvar. Espaço do navegador cheio?");
+    }
   }
 }
 
-let state = loadState();
+function loadAndListen(onReady){
+  const ok = initFirebase();
+  if(!ok){
+    state = loadState();
+    onReady();
+    return;
+  }
+  dbRef.on('value', (snapshot)=>{
+    const remote = snapshot.val();
+    if(remote){
+      isRemoteUpdate = true;
+      state = Object.assign(cloneDeep(DEFAULT_STATE), remote);
+      onReady();
+      isRemoteUpdate = false;
+    } else {
+      // banco ainda vazio: envia o estado inicial
+      saveState();
+      onReady();
+    }
+  }, (err)=>{
+    console.error('Erro ao ler do Firebase', err);
+  });
+}
+
+let state = cloneDeep(DEFAULT_STATE);
 
 /* ---------------- Theme ---------------- */
 function applyTheme(){
@@ -1940,8 +2000,11 @@ function escapeHtml(str){
 }
 
 /* ---------------- init ---------------- */
-renderPainel();
-updateCardsDueBadge();
+loadAndListen(()=>{
+  applyTheme();
+  renderPainel();
+  updateCardsDueBadge();
+});
 
 })();
 </script>
